@@ -27,7 +27,7 @@ class App extends React.Component<{}, State> {
     if (players.length < 2)
       return alert("You need at least 2 players to play");
 
-    this.setState({ players });
+    window.confirm(`Are you sure you want to delete ${player}?`) && this.setState({ players });
   }
 
   addPlayer = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -67,6 +67,46 @@ class App extends React.Component<{}, State> {
       cards,
       players: [],
     });
+  }
+
+  processCard(card: typeof cards[number]) {
+    let text = card.text;
+
+    // Random player.
+    if (text.match(/%Player[0-9]%/g)) {
+      let processing = true;
+      let index = 1;
+      let remainingPlayers = this.state.players;
+
+      while (processing) {
+        const regex = new RegExp(`%Player${index}%`, "g");
+        const match = text.match(regex);
+        index++;
+
+        if (!match) {
+          processing = false;
+          break;
+        }
+
+        const player = this.state.players[Math.floor(Math.random() * this.state.players.length)];
+        remainingPlayers = remainingPlayers.filter(p => p !== player);
+        text = text.replace(regex, player);
+      }
+    }
+
+
+    // Previous/next player
+    const currentIndex = this.state.players.indexOf(this.state.currentPlayer ?? this.state.players[0]);
+    const nextPlayerIndex = (currentIndex + 1) % this.state.players.length;
+    const PreviousPlayerIndex = (currentIndex - 1) % this.state.players.length;
+
+    text = text.replace(/%NextPlayer%/g, this.state.players[nextPlayerIndex]);
+    text = text.replace(/%PreviousPlayer%/g, this.state.players[PreviousPlayerIndex]);
+
+
+    card.text = text;
+
+    return card;
   }
 
 
@@ -125,12 +165,7 @@ class App extends React.Component<{}, State> {
         </section>
 
         <section className="main">
-          <Card
-            nextCard={this.nextCard}
-            players={this.state.players}
-            card={this.state.currentCard}
-            currentPlayer={this.state.currentPlayer}
-          />
+          <Card card={this.processCard(this.state.currentCard)} nextCard={this.nextCard} />
         </section>
 
       </main >
