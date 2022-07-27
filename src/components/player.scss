@@ -1,0 +1,45 @@
+@use "styles/vars" as *;
+
+.player {
+    display: grid;
+    grid-template-columns: auto 40px;
+    grid-template-rows: 100%;
+
+    height: 100%;
+    width: 100%;
+
+    align-items: center;
+
+
+    & p {
+        padding: 0 10px;
+    }
+
+    &[data-selected="true"] {
+        background-color: $accent;
+        color: $secondary;
+        transition: color none;
+
+        &:hover {
+            color: $secondary;
+        }
+    }
+
+    &>button {
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+
+        &:hover {
+            color: red;
+        }
+    }
+
+    &:hover {
+        transition: color 250ms ease-in-out;
+        color: $textHover;
+
+        &>button {
+            opacity: 1;
+        }
+    }
+}

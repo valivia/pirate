@@ -1,0 +1,47 @@
+@use "styles/vars" as *;
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: $text;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: #454a4d #202324;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $secondary;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $secondary;
+  border-radius: 20px;
+  border: 3px solid $tetiary;
+}
