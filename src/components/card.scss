@@ -5,10 +5,11 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+
+  text-align: center;
 
   border-radius: 10px;
-  padding: 10px;
+  padding: 40px;
   margin: 10px;
   width: 900px;
   height: 700px;
@@ -29,8 +30,25 @@
   }
 
   &>h1 {
+    margin: 10px;
+    font-size: 2rem;
+    border-radius: 10px;
+    text-decoration: underline;
+    text-decoration-color: $accent;
+    text-decoration-thickness: 4px;
+  }
+
+  &>p {
     margin: 0;
-    padding: 0;
+    font-weight: bold;
     font-size: 1.5rem;
+    border-radius: 10px;
+  }
+
+
+  &>p,
+  h1 {
+    background-color: $tetiary;
+    padding: 10px;
   }
 }

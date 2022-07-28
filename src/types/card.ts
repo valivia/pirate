@@ -3,7 +3,7 @@ interface Card {
   text: string | (string | JSX.Element)[];
   background: string | undefined;
   color: string | undefined;
-  duration: number;
+  duration: number | undefined;
 }
 
 export default Card;

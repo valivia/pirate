@@ -6,6 +6,7 @@ import { ReactNode } from "react";
 import "styles/App.scss";
 import shuffle from "util/shuffle";
 import cards from "../cards.json";
+import { motion } from "framer-motion";
 
 class App extends React.Component<{}, State> {
 
@@ -17,8 +18,8 @@ class App extends React.Component<{}, State> {
       addPlayer: false,
       players,
       cards: cards as CardType.default[],
-      previousCard: [],
-      currentCard: cards[0] as CardType.default,
+      previousCards: [],
+      currentCard: { raw: cards[0] as CardType.default, processed: cards[0] as CardType.default },
       currentPlayer: players[0],
     };
   }
@@ -44,31 +45,39 @@ class App extends React.Component<{}, State> {
       return;
     }
 
-    const players = [...this.state.players, player];
+    const players = [player, ...this.state.players];
     this.setState({ players, addPlayer: false });
   }
 
   nextCard = () => {
-    let newCard = this.state.cards[Math.floor(Math.random() * this.state.cards.length)];
-
-    if (newCard === this.state.currentCard) {
-      this.nextCard();
-      return;
-    }
-
+    let cards = this.state.cards;
+    let previousCards = this.state.previousCards;
+    let currentCard = this.state.currentCard;
 
     const currentIndex = this.state.players.indexOf(this.state.currentPlayer ?? this.state.players[0]);
-    const newPlayer = this.state.players[(currentIndex + 1) % this.state.players.length];
+    const currentPlayer = this.state.players[(currentIndex + 1) % this.state.players.length];
 
-    newCard = this.processCard(newCard, newPlayer);
+    // Remove card from previouscards if there is too many.
+    if (previousCards.length === 18) {
+      cards.push(previousCards.shift()!);
+    }
 
-    this.setState({ currentCard: newCard, currentPlayer: newPlayer });
+    // Add current card to previous cards.
+    previousCards.push(currentCard.raw);
+
+    // Set new random card as current card.
+    const newCardIndex = Math.floor(Math.random() * cards.length);
+    currentCard.raw = this.state.cards[newCardIndex];
+    currentCard.processed = this.processCard(currentCard.raw, currentPlayer);
+    cards = cards.filter((_, i) => i !== newCardIndex);
+
+    this.setState({ currentCard, previousCards, cards, currentPlayer, });
   }
 
   reset = () => {
     this.setState({
-      previousCard: [],
-      currentCard: this.state.cards[0],
+      previousCards: [],
+      currentCard: { raw: cards[0] as CardType.default, processed: cards[0] as CardType.default },
       currentPlayer: "",
       cards: cards as CardType.default[],
       players: [],
@@ -78,6 +87,7 @@ class App extends React.Component<{}, State> {
   processCard(card: CardType.default, player: string = this.state.currentPlayer): CardType.default {
     let text = card.text as string;
     const players = this.state.players;
+    if (card.duration === undefined) card.duration = 0
 
     // Previous/next/current player
     const currentIndex = players.indexOf(player ?? players[0]);
@@ -97,17 +107,17 @@ class App extends React.Component<{}, State> {
 
 
     // Replace placeholders
-    const newText = text.replace(/ /g, ", ").split(",").map(substring => {
-      if (substring.match(/%PreviousPlayer%/)) return <var> {players[prevIndex]}</var>;
-      if (substring.match(/%NextPlayer%/)) return <var> {players[nextIndex]}</var>;
-      if (substring.match(/%Self%/)) return <var><u> {player}</u></var>;
-      if (substring.match(/%Rounds%/)) return <><var> {card.duration}</var> {`round${card.duration > 1 ? "s" : ""}`}</>;
+    const newText = text.replace(/ /g, "~ ").split("~").map(substring => {
+      if (substring.match(/%PreviousPlayer%/)) return <> <var>{players[prevIndex]}</var></>;
+      if (substring.match(/%NextPlayer%/)) return <> <var>{players[nextIndex]}</var></>;
+      if (substring.match(/%Self%/)) return <> <var><u>{player}</u></var></>;
+      if (substring.match(/%Rounds%/)) return <> <var>{card.duration}</var> {`round${card.duration! > 1 ? "s" : ""}`}</>;
 
       if (substring.match(/%Player[0-9]%/)) {
         const randomPlayer = randomPlayers.find(p => p.placeholder === substring.trim());
         console.log({ randomPlayer, substring });
 
-        if (randomPlayer) return <var> {randomPlayer.name}</var>;
+        if (randomPlayer) return <> <var>{randomPlayer.name}</var></>;
       }
 
       return substring;
@@ -118,6 +128,18 @@ class App extends React.Component<{}, State> {
 
 
   render(): ReactNode {
+
+    const container = {
+      hidden: { opacity: 1, scale: 0 },
+      visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+          delayChildren: 0.3,
+          staggerChildren: 0.2
+        }
+      }
+    };
 
     return (
       <main>
@@ -157,21 +179,28 @@ class App extends React.Component<{}, State> {
               />
             </section>
           </section>
-          <section className="players">
-            {this.state.players.map(player =>
+          <motion.section
+            className="players"
+
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {this.state.players.map((player, index) =>
               <Player
                 key={player}
+                index={index}
                 player={player}
                 deletePlayer={this.deletePlayer}
                 allowDelete={this.state.players.length > 2}
                 active={this.state.currentPlayer === player}
               />
             )}
-          </section>
+          </motion.section>
         </section>
 
         <section className="main">
-          <Card card={this.state.currentCard} nextCard={this.nextCard} />
+          <Card card={this.state.currentCard.processed} nextCard={this.nextCard} />
         </section>
 
       </main >
@@ -182,8 +211,8 @@ class App extends React.Component<{}, State> {
 interface State {
   players: string[];
   cards: CardType.default[];
-  currentCard: CardType.default;
-  previousCard: CardType.default[];
+  currentCard: { raw: CardType.default, processed: CardType.default };
+  previousCards: CardType.default[];
   currentPlayer: string;
   addPlayer: boolean;
 }
