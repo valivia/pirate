@@ -73,31 +73,17 @@ class App extends React.Component<{}, State> {
 
   processCard(card: typeof cards[number]) {
     let text = card.text;
-    console.log({ text });
 
 
-    // Random player.
-    if (text.match(/%Player[0-9]%/g)) {
-      let processing = true;
-      let index = 1;
-      let remainingPlayers = this.state.players;
-
-      while (processing) {
-        const regex = new RegExp(`%Player${index}%`, "g");
-        const match = text.match(regex);
-        index++;
-
-        if (!match) {
-          processing = false;
-          break;
-        }
-
-        const player = this.state.players[Math.floor(Math.random() * this.state.players.length)];
-        remainingPlayers = remainingPlayers.filter(p => p !== player);
-        text = text.replace(regex, player);
+    // Replace all random player placeholders with names (Credit to Tetrovolt)
+    const match = text.match(/%Player[0-9]%/g);
+    if (match) {
+      const uniquePlaceholders = new Set([...match]);
+      const names = [...this.state.players].sort(() => Math.random() - 0.5).splice(0, uniquePlaceholders.size);
+      for (const placeholder of uniquePlaceholders) {
+        text = text.replace(placeholder, names.pop()!);
       }
     }
-
 
     // Previous/next player
     const currentIndex = this.state.players.indexOf(this.state.currentPlayer ?? this.state.players[0]);

@@ -9,7 +9,7 @@ class Card extends React.Component<Props> {
         return (
             <section className="card">
                 <article className="card">
-                    <h1>{card.title}</h1>
+                    {card.title ?? <h1>{card.title}</h1>}
                     <p>{card.text}</p>
                 </article>
                 <section>
@@ -21,7 +21,7 @@ class Card extends React.Component<Props> {
 }
 
 interface Props {
-    card: { title: string, text: string };
+    card: { title: string | null, text: string };
     nextCard: () => void;
 }
 
