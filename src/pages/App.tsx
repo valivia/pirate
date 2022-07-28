@@ -47,12 +47,14 @@ class App extends React.Component<{}, State> {
   }
 
   nextCard = () => {
-    const newCard = this.state.cards[Math.floor(Math.random() * this.state.cards.length)];
+    let newCard = this.state.cards[Math.floor(Math.random() * this.state.cards.length)];
 
     if (newCard === this.state.currentCard || newCard === this.state.previousCard) {
       this.nextCard();
       return;
     }
+
+    newCard = this.processCard(newCard)
 
     const currentIndex = this.state.players.indexOf(this.state.currentPlayer ?? this.state.players[0]);
     const newPlayer = currentIndex >= this.state.players.length - 1 ? 0 : currentIndex + 1;
@@ -71,6 +73,8 @@ class App extends React.Component<{}, State> {
 
   processCard(card: typeof cards[number]) {
     let text = card.text;
+    console.log({ text });
+
 
     // Random player.
     if (text.match(/%Player[0-9]%/g)) {
@@ -104,9 +108,7 @@ class App extends React.Component<{}, State> {
     text = text.replace(/%PreviousPlayer%/g, this.state.players[PreviousPlayerIndex]);
 
 
-    card.text = text;
-
-    return card;
+    return { ...card, text };
   }
 
 
@@ -165,7 +167,7 @@ class App extends React.Component<{}, State> {
         </section>
 
         <section className="main">
-          <Card card={this.processCard(this.state.currentCard)} nextCard={this.nextCard} />
+          <Card card={this.state.currentCard} nextCard={this.nextCard} />
         </section>
 
       </main >
