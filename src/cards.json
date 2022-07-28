@@ -1,37 +1,357 @@
 [
     {
-        "title": "The josh",
-        "text": "%Player1% chugs drink",
+        "title": "The Josh",
+        "text": "%Self% must finish their drink",
+        "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002209899184398336/TURKIYE.jpg",
+        "color": "#00ff00",
         "duration": 0
     },
     {
-        "title": "sus",
-        "text": "mogus",
+        "text": "Blue eyed people drink",
         "duration": 0
     },
     {
-        "title": "Stinker",
-        "text": "%Player1% stinks but so does %Player2%, %Player1% more tho",
-        "duration": 0
-    },
-    {
-        "title": "aaaa",
-        "text": "Drink Three times",
-        "duration": 0
-    },
-    {
-        "title": "bbbb",
-        "text": "Drink for every letter in your name",
-        "duration": 0
-    },
-    {
-        "title": "cc",
         "text": "Browned eyed people drink",
         "duration": 0
     },
     {
-        "title": "",
-        "text": "%Player1% has to give you a compliment",
+        "text": "All cat owners drink",
+        "duration": 0
+    },
+    {
+        "text": "All dog owners drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone wearing glasses must drink",
+        "duration": 0
+    },
+    {
+        "text": "Single people drink",
+        "duration": 0
+    },
+    {
+        "text": "Unemployed people drink",
+        "duration": 0
+    },
+    {
+        "text": "Employed people drink",
+        "duration": 0
+    },
+    {
+        "text": "Every atheist must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone religious must drink",
+        "duration": 0
+    },
+    {
+        "text": "If you're a virgin, L, take a drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone with a piercing must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone with a tattoo must drink",
+        "duration": 0
+    },
+    {
+        "text": "The person with the longest hair must drink",
+        "duration": 0
+    },
+    {
+        "text": "The person with the shortest hair must drink",
+        "duration": 0
+    },
+    {
+        "text": "The person with the biggest feet must drink",
+        "duration": 0
+    },
+    {
+        "text": "The person with the biggest nose must drink",
+        "duration": 0
+    },
+    {
+        "text": "The person with the biggest forehead must drink",
+        "duration": 0
+    },
+    {
+        "text": "The shortest person must drink",
+        "duration": 0
+    },
+    {
+        "text": "The tallest person must drink",
+        "duration": 0
+    },
+    {
+        "title": "Brexit means Brexit",
+        "text": "Drink if English isn't your native language",
+        "duration": 0
+    },
+    {
+        "text": "Drink if you're wearing an XL piece of clothing or larger",
+        "duration": 0
+    },
+    {
+        "text": "%Self% has to give everyone a compliment then take a drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone has to give has to give %Self% a compliment then take a drink",
+        "duration": 0
+    },
+    {
+        "text": "%Self% must give a passionate speech about how great %Player1% is",
+        "duration": 0
+    },
+    {
+        "text": "%Self% has to say the day of birth of %Player1% or take a drink",
+        "duration": 0
+    },
+    {
+        "text": "%Self% has to call someone and tell them you love them",
+        "duration": 0
+    },
+    {
+        "text": "Drink for every letter in your name",
+        "duration": 0
+    },
+    {
+        "text": "%Self% must let %Player1% send a message to someone on their device",
+        "duration": 0
+    },
+    {
+        "text": "%Self% can make a rule for %Rounds%",
+        "duration": 2
+    },
+    {
+        "text": "%Self% can ban a word for %Rounds%",
+        "duration": 2
+    },
+    {
+        "text": "%Self% has to take a drink everytime they blink for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "%Self% cannot speak for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "%Self% cannot speak English for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "%Self% cannot use their hands for %Rounds%",
+        "duration": 1
+    },
+    {
+        "title": "Cap",
+        "text": "%Self% cannot tell the truth for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "%Self% must drink double for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "%Self% must drink any time %Player1% or %Player2% drinks for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "Everybody must end their sentence with \"thus\" for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "Nobody can say any word with the letter o in it for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "Nobody can swear for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "Everyone drinks!",
+        "duration": 0
+    },
+    {
+        "text": "%Self% must drink!",
+        "duration": 0
+    },
+    {
+        "text": "%Self% chooses someone to drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses someone to drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses the person with the worst music taste, they must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses the person with the best music taste, they must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses the person with the worst fashion sense, they must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses the person with the best fashion sense, they must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses the most caring person, they must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses the friendliest person, they must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses the meanest person, they must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses the kinkiest person, they must drink",
+        "duration": 0
+    },
+    {
+        "title": "Besties",
+        "text": "Everyone drinks except %Self% and a person of their choosing",
+        "duration": 0
+    },
+    {
+        "title": "Two lies, one truth",
+        "text": "%Self% says two lies and one truth, everyone who picks a lie must drink",
+        "duration": 0
+    },
+    {
+        "title": "Two truths, one lie",
+        "text": "%Self% says two truths and one lie, everyone who picks a truth must drink",
+        "duration": 0
+    },
+    {
+        "title": "Would you rather",
+        "text": "play would you rather, the smaller group must drink, if tied both drink, %Self% asks the question",
+        "duration": 0
+    },
+    {
+        "title": "Truth or Truth",
+        "text": "%Self% must ask someone of their choosing a question, they must answer truthfully",
+        "duration": 0
+    },
+    {
+        "text": "Drink if your drink is mixed",
+        "duration": 0
+    },
+    {
+        "text": "Drink if your drink has vodka in it",
+        "duration": 0
+    },
+    {
+        "text": "Drink if your drink has rum in it",
+        "duration": 0
+    },
+    {
+        "text": "Drink if your drink has gin in it",
+        "duration": 0
+    },
+    {
+        "text": "The person with the most cash on them must drink",
+        "duration": 0
+    },
+    {
+        "title": "Coping mechanism",
+        "text": "The person with the least money must drink",
+        "duration": 0
+    },
+    {
+        "title": "The Birmingham moment",
+        "text": "%Self% has to insult %Player1% then take a drink",
+        "duration": 0
+    },
+    {
+        "text": "%Self% and the person they've known the longest must drink",
+        "duration": 0
+    },
+    {
+        "text": "%Self% tells everyone their favourite weird pizza topping then drinks",
+        "duration": 0
+    },
+    {
+        "text": "Name a phobia you have then drink",
+        "duration": 0
+    },
+    {
+        "text": "%Self% must do what %Player1% tells them to, if you can't, take a drink",
+        "duration": 0
+    },
+    {
+        "text": "%Self% must guess the song that's playing, if there's no music or you guess wrong, drink",
+        "duration": 0
+    },
+    {
+        "text": "Everybody must be VERY ANGRY for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "Nobody can speak at the same time as anyone else for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "The shortest person must sit on the ground for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "You must close your eyes for %Rounds%",
+        "duration": 1
+    },
+    {
+        "text": "The tallest person must stand up for %Rounds%",
+        "duration": 2
+    },
+    {
+        "text": "Drink if you want!",
+        "duration": 0
+    },
+    {
+        "text": "Everyone chooses the 2 people who look most alike, they must drink",
+        "duration": 0
+    },
+    {
+        "title": "Mistakes make it fun",
+        "text": "Everyone chooses the drunkest person, they must drink",
+        "duration": 0
+    },
+    {
+        "title": "Don't be boring",
+        "text": "Everyone chooses the most sober person, they must finish their drink",
+        "duration": 0
+    },
+    {
+        "title": "Welcome to America",
+        "text": "If you've ever shot a gun, take a drink",
+        "duration": 0
+    },
+    {
+        "text": "%Self% and %Player1% must pick a meal, everyone must decide which meal is better, the person with the least votes must drink",
+        "duration": 0
+    },
+    {
+        "text": "Ask %Self% a general knowledge question, if they don't get it right they must drink",
+        "duration": 0
+    },
+    {
+        "text": "%Self% must ask %Player1% a question about themselves, if the don't get it right they must drink",
+        "duration": 0
+    },
+    {
+        "text": "Everyone must do 10 pushups, if you can't then take a drink",
         "duration": 0
     }
 ]

@@ -1,3 +1,4 @@
+import * as CardType from "types/card";
 import React from "react";
 import "./card.scss";
 
@@ -5,23 +6,24 @@ class Card extends React.Component<Props> {
 
     render() {
         let card = this.props.card;
+        let cardStyle = {};
+        card.background && (cardStyle = { ...cardStyle, backgroundImage: `url(${card.background}` });
+        card.color && (cardStyle = { ...cardStyle, color: card.color });
 
         return (
-            <section className="card">
-                <article className="card">
-                    {card.title ?? <h1>{card.title}</h1>}
-                    <p>{card.text}</p>
-                </article>
-                <section>
-                    <button onClick={this.props.nextCard}>Next</button>
-                </section>
-            </section>
+            <article
+                className="card noselect"
+                style={cardStyle}
+                onClick={this.props.nextCard}>
+                {card.title ? <h1>{card.title}</h1> : null}
+                <p>{card.text}</p>
+            </article>
         )
     }
 }
 
 interface Props {
-    card: { title: string | null, text: string };
+    card: CardType.default;
     nextCard: () => void;
 }
 

@@ -1,4 +1,5 @@
 import Card from "components/card";
+import * as CardType from "types/card";
 import Player from "components/player";
 import React from "react";
 import { ReactNode } from "react";
@@ -11,12 +12,13 @@ class App extends React.Component<{}, State> {
   constructor(props: {}) {
     super(props);
     const players = ["Trinity", "Josh", "Armex", "Usyer", "Pigeon", "Cayde", "Kiwi", "Chépa", "johnas smithas", "Jason"]
+
     this.state = {
       addPlayer: false,
       players,
-      cards,
-      previousCard: null,
-      currentCard: cards[0],
+      cards: cards as CardType.default[],
+      previousCard: [],
+      currentCard: cards[0] as CardType.default,
       currentPlayer: players[0],
     };
   }
@@ -49,52 +51,69 @@ class App extends React.Component<{}, State> {
   nextCard = () => {
     let newCard = this.state.cards[Math.floor(Math.random() * this.state.cards.length)];
 
-    if (newCard === this.state.currentCard || newCard === this.state.previousCard) {
+    if (newCard === this.state.currentCard) {
       this.nextCard();
       return;
     }
 
-    newCard = this.processCard(newCard)
 
     const currentIndex = this.state.players.indexOf(this.state.currentPlayer ?? this.state.players[0]);
-    const newPlayer = currentIndex >= this.state.players.length - 1 ? 0 : currentIndex + 1;
-    this.setState({ currentCard: newCard, currentPlayer: this.state.players[newPlayer] });
+    const newPlayer = this.state.players[(currentIndex + 1) % this.state.players.length];
+
+    newCard = this.processCard(newCard, newPlayer);
+
+    this.setState({ currentCard: newCard, currentPlayer: newPlayer });
   }
 
   reset = () => {
     this.setState({
-      previousCard: null,
+      previousCard: [],
       currentCard: this.state.cards[0],
-      currentPlayer: null,
-      cards,
+      currentPlayer: "",
+      cards: cards as CardType.default[],
       players: [],
     });
   }
 
-  processCard(card: typeof cards[number]) {
-    let text = card.text;
+  processCard(card: CardType.default, player: string = this.state.currentPlayer): CardType.default {
+    let text = card.text as string;
+    const players = this.state.players;
+
+    // Previous/next/current player
+    const currentIndex = players.indexOf(player ?? players[0]);
+    const nextIndex = (currentIndex + 1) % players.length;
+    const prevIndex = (currentIndex + players.length - 1) % players.length;
 
 
-    // Replace all random player placeholders with names (Credit to Tetrovolt)
+    // Random players
+    let randomPlayers: { name: string, placeholder: string }[] = [];
     const match = text.match(/%Player[0-9]%/g);
     if (match) {
-      const uniquePlaceholders = new Set([...match]);
-      const names = [...this.state.players].sort(() => Math.random() - 0.5).splice(0, uniquePlaceholders.size);
-      for (const placeholder of uniquePlaceholders) {
-        text = text.replace(placeholder, names.pop()!);
-      }
+      const playerOptions = players.filter(p => p !== player);
+      const uniquePlaceholders = Array.from(new Set([...match]));
+      const names = [...playerOptions].sort(() => Math.random() - 0.5).splice(0, uniquePlaceholders.length);
+      randomPlayers = names.map((x, y) => ({ name: x, placeholder: uniquePlaceholders[y] }))
     }
 
-    // Previous/next player
-    const currentIndex = this.state.players.indexOf(this.state.currentPlayer ?? this.state.players[0]);
-    const nextPlayerIndex = (currentIndex + 1) % this.state.players.length;
-    const PreviousPlayerIndex = (currentIndex - 1) % this.state.players.length;
 
-    text = text.replace(/%NextPlayer%/g, this.state.players[nextPlayerIndex]);
-    text = text.replace(/%PreviousPlayer%/g, this.state.players[PreviousPlayerIndex]);
+    // Replace placeholders
+    const newText = text.replace(/ /g, ", ").split(",").map(substring => {
+      if (substring.match(/%PreviousPlayer%/)) return <var> {players[prevIndex]}</var>;
+      if (substring.match(/%NextPlayer%/)) return <var> {players[nextIndex]}</var>;
+      if (substring.match(/%Self%/)) return <var><u> {player}</u></var>;
+      if (substring.match(/%Rounds%/)) return <><var> {card.duration}</var> {`round${card.duration > 1 ? "s" : ""}`}</>;
 
+      if (substring.match(/%Player[0-9]%/)) {
+        const randomPlayer = randomPlayers.find(p => p.placeholder === substring.trim());
+        console.log({ randomPlayer, substring });
 
-    return { ...card, text };
+        if (randomPlayer) return <var> {randomPlayer.name}</var>;
+      }
+
+      return substring;
+    });
+
+    return { ...card, text: newText };
   }
 
 
@@ -104,7 +123,8 @@ class App extends React.Component<{}, State> {
       <main>
 
         <section className="sidebar">
-          <section className="menu">
+
+          <section className="menu" data-state={this.state.addPlayer ? "open" : "closed"}>
             <section className="buttons">
 
               <button
@@ -127,17 +147,15 @@ class App extends React.Component<{}, State> {
               </button>
 
             </section>
-            {this.state.addPlayer &&
-              <section className="addPlayer">
-                <input
-                  type="text"
-                  id="add-player"
-                  placeholder="Add player"
-                  onKeyUp={this.addPlayer}
-                  ref={x => x && x.focus()}
-                />
-              </section>
-            }
+            <section className="addPlayer" data-state={this.state.addPlayer ? "open" : "closed"}>
+              <input
+                type="text"
+                id="add-player"
+                placeholder="Add player"
+                onKeyUp={this.addPlayer}
+                ref={x => x && x.focus()}
+              />
+            </section>
           </section>
           <section className="players">
             {this.state.players.map(player =>
@@ -163,10 +181,10 @@ class App extends React.Component<{}, State> {
 
 interface State {
   players: string[];
-  cards: typeof cards;
-  currentCard: typeof cards[number];
-  previousCard: typeof cards[number] | null;
-  currentPlayer: string | null;
+  cards: CardType.default[];
+  currentCard: CardType.default;
+  previousCard: CardType.default[];
+  currentPlayer: string;
   addPlayer: boolean;
 }
 
