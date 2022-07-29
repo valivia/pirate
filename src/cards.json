@@ -1,5 +1,10 @@
 [
     {
+        "title": "2-Dimensional Feelings",
+        "text": "Drink if you've ever thought a cartoon character was hot",
+        "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002534235615268875/153702492_781483495829132_247055559415224773_n.jpg"
+    },
+    {
         "title": "Kiwi Leave",
         "text": "Next person to leave the room has to down their drink",
         "background": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fichef.bbci.co.uk%2Fimages%2Fic%2F1200x675%2Fp07l22b7.jpg&f=1&nofb=1"
@@ -21,12 +26,17 @@
     },
     {
         "title": "Joschi",
-        "text": "The Kinkiest player has to drink",
+        "text": "The kinkiest player has to drink",
         "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002311915348971530/Man_in_Black_Latex_Catsuit.jpeg"
     },
     {
+        "title": "The Pope",
+        "text": "The least kinky player has to drink",
+        "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002540158186442782/pope-ireland-flag-2363-p.png"
+    },
+    {
         "title": "The gamer",
-        "text": "If you haven't left your room today, you have to drink",
+        "text": "If you haven't left your house today, you have to drink",
         "background": "https://cdn.discordapp.com/attachments/535494948288462858/726230553736773632/razer_chroma_ramos.gif"
     },
     {
@@ -55,6 +65,73 @@
         "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002310404602597457/usyer.png"
     },
     {
+        "title": "Jackie's Love",
+        "text": " If %Self% likes monkeys, they choose someone that needs to drink, otherwise they need to drink",
+        "background": "https://cdn.discordapp.com/attachments/712092758378020931/1002379782874464286/tender_jackie.png"
+    },
+    {
+        "title": "Crime Time",
+        "text": "Drink If you've ever stole from a store",
+        "background": "https://cdn.discordapp.com/attachments/485923013053906947/1002380070456922122/unknown.png"
+    },
+    {
+        "title": "Skeletal Mishap",
+        "text": "Drink if you've ever broken a bone",
+        "background": "https://cdn.discordapp.com/attachments/485923013053906947/1002382511713812620/unknown.png"
+    },
+    {
+        "title": "Delinquent",
+        "text": "Drink if you've ever bunked off school"
+    },
+    {
+        "title": "Inked Up",
+        "text": "Take a drink if you have a tattoo"
+    },
+    {
+        "title": "Commander In Cheat",
+        "text": "Drink if you've cheated on a test"
+    },
+    {
+        "title": "Rock For Dinner",
+        "text": "Take a drink if you've ever chipped a tooth"
+    },
+    {
+        "title": "Self-made Hair Stylist",
+        "text": "Drink if you've ever cut your own hair"
+    },
+    {
+        "title": "Feeling Sleepy?",
+        "text": "Drink if you've gone under general anaesthetic before"
+    },
+    {
+        "title": "Who Wears The Pants?",
+        "text": "Drink if you've ever gone commando in public"
+    },
+    {
+        "title": "Generous Soul",
+        "text": "Drink if you've donated blood"
+    },
+    {
+        "title": "Bruiser",
+        "text": "Drink if you've had a black eye before"
+    },
+    {
+        "title": "Kind Words",
+        "text": "%Self% and %Player1% must pay each other a compliment and drink"
+    },
+    {
+        "title": "Hit 'Em Where It Hurts",
+        "text": "%Self% and %Player1% must insult each other and drink"
+    },
+    {
+        "title": "Quickfire Opinions",
+        "text": "%Self% and %Player1% must agree on anything at all, or drink"
+    },
+    {
+        "title": "Rock, Paper, Scissors, Drink!",
+        "text": "%Self% and %Player1% must play Rock, Paper, Scissors. Whoever wins gets to choose someone to drink!"
+    },
+    {
         "title": "Michael",
         "text": "Drink a glass of water inshallah"
     },
@@ -72,9 +149,6 @@
     },
     {
         "text": "Everyone wearing glasses must drink"
-    },
-    {
-        "text": "Single people drink"
     },
     {
         "text": "Unemployed people drink"
@@ -227,9 +301,6 @@
     },
     {
         "text": "Everyone chooses the meanest person, they must drink"
-    },
-    {
-        "text": "Everyone chooses the kinkiest person, they must drink"
     },
     {
         "title": "Besties",
