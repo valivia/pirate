@@ -16,6 +16,8 @@ class App extends React.Component<{}, State> {
 
     this.state = {
       addPlayer: false,
+      showPlayers: false,
+
       players,
       cards: cards as Card[],
       previousCards: [],
@@ -132,6 +134,25 @@ class App extends React.Component<{}, State> {
     return { ...card, text: newText };
   }
 
+  sceneHandler = () => {
+    const {
+      players,
+      currentCard,
+      activeCards,
+      currentPlayer,
+      showPlayers
+    } = this.state
+
+    if (players.length > 3)
+      return <CardContainer
+        currentCard={currentCard}
+        activeCards={activeCards}
+        currentPlayer={currentPlayer}
+        nextCard={this.nextCard}
+      />
+    else return <section className={styles.container}>You need at least 2 players to play</section>
+  }
+
   componentDidMount() {
     if (this.state.currentCard.processed === undefined) {
       this.setState({
@@ -150,38 +171,36 @@ class App extends React.Component<{}, State> {
       activeCards,
       currentPlayer,
       addPlayer,
+      showPlayers
     } = this.state;
 
-
     return (
-      <main className={styles.main}>
+      <main
+        className={styles.main}
+        data-showplayers={showPlayers ? "true" : "false"}
+      >
 
         <section className={styles.sidebar}>
 
           <Menu
             shufflePlayers={this.shufflePlayers}
             openAddPlayer={() => this.setState({ addPlayer: !addPlayer })}
+            showPlayers={() => this.setState({ showPlayers: !showPlayers })}
             addPlayer={this.addPlayer}
             reset={this.reset}
+
             isOpen={addPlayer}
+            playersShown={showPlayers}
           />
 
           <PlayerList
             players={players}
+            showPlayers={showPlayers}
             currentPlayer={currentPlayer}
             deletePlayer={this.deletePlayer}
           />
         </section>
-
-        {players.length > 3 &&
-          <CardContainer
-            currentCard={currentCard}
-            activeCards={activeCards}
-            currentPlayer={currentPlayer}
-            nextCard={this.nextCard}
-          />}
-        {players.length < 2 && <div className={styles.CardContainer}>You need at least 2 players to play</div>}
-
+        <this.sceneHandler />
       </main >
     );
   }
@@ -194,7 +213,9 @@ interface State {
   previousCards: Card[];
   activeCards: currentCard[];
   currentPlayer: string;
+
   addPlayer: boolean;
+  showPlayers: boolean;
 }
 
 export default App;

@@ -6,7 +6,7 @@
     transition: height 500ms;
     height: 60px;
 
-    &[data-state="open"] {
+    &[data-addplayer="true"] {
         height: 100px;
     }
 }
@@ -70,13 +70,30 @@
     }
 }
 
-#playerList {
+
+.listButton {
     display: none;
 }
 
 // Phone
 @media (max-width: 640px) {
-    #playerList {
+
+    // button visibility
+    .listButton {
         display: block;
+    }
+
+    .shuffleButton {
+        display: none;
+    }
+
+    .main[data-showplayers="true"]>.buttons {
+        .resetButton {
+            display: none;
+        }
+
+        .shuffleButton {
+            display: block;
+        }
     }
 }

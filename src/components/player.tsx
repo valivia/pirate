@@ -20,7 +20,10 @@ class Player extends React.Component<Props> {
             >
                 <p>{this.props.player}</p>
                 {(!this.props.active && this.props.allowDelete) ?
-                    <button onClick={() => this.props.deletePlayer(this.props.player)}>
+                    <button
+                        onClick={() => this.props.deletePlayer(this.props.player)}
+                        className={styles.delete}
+                    >
                         <i className="material-icons">delete</i>
                     </button>
                     : <></>}

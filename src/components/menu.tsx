@@ -10,16 +10,20 @@ class Menu extends React.Component<Props, State> {
     }
 
     render() {
-        const { reset, shufflePlayers, openAddPlayer, addPlayer, isOpen } = this.props;
+        const { reset, shufflePlayers, openAddPlayer, addPlayer, showPlayers, isOpen, playersShown } = this.props;
 
         return (
-            <section className={styles.main} data-state={isOpen ? "open" : "closed"}>
+            <section
+                className={styles.main}
+                data-addplayer={isOpen ? "true" : "false"}
+                data-showplayers={playersShown ? "true" : "false"}
+            >
                 <section className={styles.buttons}>
 
                     <button
                         onClick={reset}
                         title="Reset"
-                        id="reset"
+                        className={styles.resetButton}
                     >
                         <i className="material-icons">arrow_back</i>
                     </button>
@@ -27,21 +31,21 @@ class Menu extends React.Component<Props, State> {
                     <button
                         onClick={shufflePlayers}
                         title="Shuffle"
-                        id="shuffle"
+                        className={styles.shuffleButton}
                     ><i className="material-icons">shuffle</i>
                     </button>
 
                     <button
-                        onClick={() => null}
+                        onClick={showPlayers}
                         title="Show players"
-                        id="playerList"
+                        className={styles.listButton}
                     ><i className="material-icons">group</i>
                     </button>
 
                     <button
                         onClick={openAddPlayer}
                         title="Add player"
-                        id="addPlayer"
+                        className={styles.addButton}
                     ><i className="material-icons">person_add</i>
                     </button>
 
@@ -68,9 +72,11 @@ interface State {
 interface Props {
     shufflePlayers: () => void;
     openAddPlayer: () => void;
+    showPlayers: () => void;
     addPlayer: (e: React.KeyboardEvent<HTMLInputElement>) => void;
     reset: () => void;
     isOpen: boolean;
+    playersShown: boolean;
 }
 
 export default Menu;

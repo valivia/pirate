@@ -15,4 +15,9 @@
     .main {
         display: none;
     }
+
+    .main[data-showplayers="true"] {
+        display: grid;
+        height: 100vh;
+    }
 }

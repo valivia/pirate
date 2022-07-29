@@ -10,6 +10,7 @@
 
 .sidebar {
   display: grid;
+  max-height: 100vh;
   grid-area: sidebar;
   grid-template-columns: 100%;
   grid-template-rows: min-content 1fr;
@@ -20,16 +21,26 @@
 
   background-color: $tetiary;
 }
+
+.container {
+  grid-area: main;
+  background-color: $primary;
+  width: 100%;
+  height: 100%;
+}
+
+
 // Phone
 @media (max-width: 640px) {
   .main {
     grid-template-columns: 100%;
     grid-template-rows: min-content auto;
     grid-template-areas: "sidebar""main";
+
+    &[data-showplayers="true"] {
+      grid-template-rows: 100vh 0;
+    }
   }
 
 
-  .sidebar {
-    display: block;
-  }
 }
