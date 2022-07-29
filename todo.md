@@ -11,9 +11,9 @@
 
 
 # Planned improvements
- - Remove/add people mid game.
- - dont use "player on your left/right" but pick a random player from the list.
- - have all names on screen.
- - Randomise order of players.
- - Display which cards are active and when they expire.
+ - [x] Remove/add people mid game.
+ - [x] dont use "player on your left/right" but pick a random player from the list.
+ - [x] have all names on screen.
+ - [x] Randomise order of players.
+ - [ ] Display which cards are active and when they expire.
   
