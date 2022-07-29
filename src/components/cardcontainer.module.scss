@@ -1,0 +1,30 @@
+@use "styles/vars" as *;
+
+.main {
+    grid-area: main;
+    background-color: $primary;
+
+    display: grid;
+    grid-template-columns: 1fr minmax(100px, 4fr) 1fr minmax(100px, max-content);
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: ". . . active"". card . active"". . . active";
+
+    &>.turn {
+        display: none;
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .main {
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 4fr 2fr;
+        grid-template-areas: "turn""card""active";
+
+        padding: 10px;
+
+        &>.turn {
+            display: block;
+        }
+    }
+}

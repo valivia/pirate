@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import "./player.scss";
+import styles from "./player.module.scss";
 
 class Player extends React.Component<Props> {
     render() {
@@ -12,7 +12,7 @@ class Player extends React.Component<Props> {
 
         return (
             <motion.article
-                className="player"
+                className={styles.main}
                 data-selected={this.props.active}
 
                 transition={{ type: "spring", stiffness: 260, damping: 20, delay: this.props.index * 0.08 }}

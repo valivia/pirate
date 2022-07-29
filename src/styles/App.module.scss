@@ -1,0 +1,35 @@
+@use "styles/vars" as *;
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(300px, 15%) 85%;
+  grid-template-areas: "sidebar main";
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.sidebar {
+  display: grid;
+  grid-area: sidebar;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content 1fr;
+  gap: 10px;
+
+  width: 100%;
+  max-width: 100%;
+
+  background-color: $tetiary;
+}
+// Phone
+@media (max-width: 640px) {
+  .main {
+    grid-template-columns: 100%;
+    grid-template-rows: min-content auto;
+    grid-template-areas: "sidebar""main";
+  }
+
+
+  .sidebar {
+    display: block;
+  }
+}

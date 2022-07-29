@@ -1,21 +1,19 @@
 import * as CardType from "types/card";
 import React from "react";
-import "./card.scss";
+import styles from "./card.module.scss";
 import { motion } from "framer-motion";
 
 class Card extends React.Component<Props> {
 
     render() {
-        let card = this.props.card;
+        let card = this.props.card.processed;
         let cardStyle = {};
         card.background && (cardStyle = { ...cardStyle, backgroundImage: `url(${card.background}` });
         card.color && (cardStyle = { ...cardStyle, color: card.color });
 
         return (
             <motion.article
-                key={card.text as string}
-
-                drag
+                key={this.props.card.raw.text}
                 initial={{ rotate: 90, scale: 0 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{
@@ -24,7 +22,7 @@ class Card extends React.Component<Props> {
                     damping: 19
                 }}
 
-                className="card noselect"
+                className={[styles.main, styles.noselect].join(" ")}
                 style={cardStyle}
 
                 onClick={this.props.nextCard}
@@ -37,7 +35,7 @@ class Card extends React.Component<Props> {
 }
 
 interface Props {
-    card: CardType.default;
+    card: CardType.currentCard;
     nextCard: () => void;
 }
 

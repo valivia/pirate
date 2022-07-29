@@ -1,12 +1,12 @@
-import Card from "components/card";
-import * as CardType from "types/card";
-import Player from "components/player";
+import { Card, currentCard, processedCard } from "types/card";
 import React from "react";
 import { ReactNode } from "react";
-import "styles/App.scss";
+import styles from "styles/App.module.scss";
 import shuffle from "util/shuffle";
 import cards from "../cards.json";
-import { motion } from "framer-motion";
+import Menu from "components/menu";
+import PlayerList from "components/playerlist";
+import CardContainer from "components/cardcontainer";
 
 class App extends React.Component<{}, State> {
 
@@ -17,9 +17,10 @@ class App extends React.Component<{}, State> {
     this.state = {
       addPlayer: false,
       players,
-      cards: cards as CardType.default[],
+      cards: cards as Card[],
       previousCards: [],
-      currentCard: { raw: cards[0] as CardType.default, processed: cards[0] as CardType.default },
+      activeCards: [],
+      currentCard: { raw: cards[Math.floor(Math.random() * cards.length)] } as currentCard,
       currentPlayer: players[0],
     };
   }
@@ -74,17 +75,22 @@ class App extends React.Component<{}, State> {
     this.setState({ currentCard, previousCards, cards, currentPlayer, });
   }
 
+  shufflePlayers = () => {
+    const players = shuffle(this.state.players);
+    this.setState({ players });
+  }
+
   reset = () => {
     this.setState({
       previousCards: [],
-      currentCard: { raw: cards[0] as CardType.default, processed: cards[0] as CardType.default },
+      currentCard: { raw: cards[0] as Card } as currentCard,
       currentPlayer: "",
-      cards: cards as CardType.default[],
+      cards: cards as Card[],
       players: [],
     });
   }
 
-  processCard(card: CardType.default, player: string = this.state.currentPlayer): CardType.default {
+  processCard(card: Card, player: string = this.state.currentPlayer): processedCard {
     let text = card.text as string;
     const players = this.state.players;
     if (card.duration === undefined) card.duration = 0
@@ -126,82 +132,55 @@ class App extends React.Component<{}, State> {
     return { ...card, text: newText };
   }
 
+  componentDidMount() {
+    if (this.state.currentCard.processed === undefined) {
+      this.setState({
+        currentCard: {
+          ...this.state.currentCard,
+          processed: this.processCard(this.state.currentCard.raw)
+        }
+      });
+    }
+  }
 
   render(): ReactNode {
+    const {
+      players,
+      currentCard,
+      activeCards,
+      currentPlayer,
+      addPlayer,
+    } = this.state;
 
-    const container = {
-      hidden: { opacity: 1, scale: 0 },
-      visible: {
-        opacity: 1,
-        scale: 1,
-        transition: {
-          delayChildren: 0.3,
-          staggerChildren: 0.2
-        }
-      }
-    };
 
     return (
-      <main>
+      <main className={styles.main}>
 
-        <section className="sidebar">
+        <section className={styles.sidebar}>
 
-          <section className="menu" data-state={this.state.addPlayer ? "open" : "closed"}>
-            <section className="buttons">
+          <Menu
+            shufflePlayers={this.shufflePlayers}
+            openAddPlayer={() => this.setState({ addPlayer: !addPlayer })}
+            addPlayer={this.addPlayer}
+            reset={this.reset}
+            isOpen={addPlayer}
+          />
 
-              <button
-                onClick={this.reset}
-                title="Reset"
-              >
-                <i className="material-icons">arrow_back</i>
-              </button>
-
-              <button
-                onClick={() => this.setState({ players: shuffle(this.state.players) })}
-                title="Shuffle"
-              ><i className="material-icons">shuffle</i>
-              </button>
-
-              <button
-                onClick={() => this.setState({ addPlayer: !this.state.addPlayer })}
-                title="Add player"
-              ><i className="material-icons">person_add</i>
-              </button>
-
-            </section>
-            <section className="addPlayer" data-state={this.state.addPlayer ? "open" : "closed"}>
-              <input
-                type="text"
-                id="add-player"
-                placeholder="Add player"
-                onKeyUp={this.addPlayer}
-                ref={x => x && x.focus()}
-              />
-            </section>
-          </section>
-          <motion.section
-            className="players"
-
-            variants={container}
-            initial="hidden"
-            animate="visible"
-          >
-            {this.state.players.map((player, index) =>
-              <Player
-                key={player}
-                index={index}
-                player={player}
-                deletePlayer={this.deletePlayer}
-                allowDelete={this.state.players.length > 2}
-                active={this.state.currentPlayer === player}
-              />
-            )}
-          </motion.section>
+          <PlayerList
+            players={players}
+            currentPlayer={currentPlayer}
+            deletePlayer={this.deletePlayer}
+          />
         </section>
 
-        <section className="main">
-          <Card card={this.state.currentCard.processed} nextCard={this.nextCard} />
-        </section>
+        {players.length > 3 &&
+          <CardContainer
+            currentCard={currentCard}
+            activeCards={activeCards}
+            currentPlayer={currentPlayer}
+            nextCard={this.nextCard}
+          />}
+        {players.length < 2 && <div className={styles.CardContainer}>You need at least 2 players to play</div>}
 
       </main >
     );
@@ -210,9 +189,10 @@ class App extends React.Component<{}, State> {
 
 interface State {
   players: string[];
-  cards: CardType.default[];
-  currentCard: { raw: CardType.default, processed: CardType.default };
-  previousCards: CardType.default[];
+  cards: Card[];
+  currentCard: currentCard;
+  previousCards: Card[];
+  activeCards: currentCard[];
   currentPlayer: string;
   addPlayer: boolean;
 }
