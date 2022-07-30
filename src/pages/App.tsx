@@ -1,29 +1,34 @@
-import { Card, currentCard, processedCard } from "types/card";
+import { activeCard, Card, processedCard } from "types/card";
 import React from "react";
 import { ReactNode } from "react";
 import styles from "styles/App.module.scss";
 import shuffle from "util/shuffle";
-import cards from "../cards.json";
+import cardsJson from "../cards.json";
 import Menu from "components/menu";
 import PlayerList from "components/playerlist";
 import CardContainer from "components/cardcontainer";
+
+import discordCards from "../cards/discord.pack.json";
 
 class App extends React.Component<{}, State> {
 
   constructor(props: {}) {
     super(props);
     const players = ["Trinity", "Josh", "Armex", "Usyer", "Pigeon", "Cayde", "Kiwi", "Chépa", "johnas smithas", "Jason"]
+    //const cards = cardsJson as Card[];
+    const cards = discordCards.cards as Card[];
 
     this.state = {
       addPlayer: false,
       showPlayers: false,
 
       players,
-      cards: cards as Card[],
+      cards,
       previousCards: [],
       activeCards: [],
-      currentCard: { raw: cards[Math.floor(Math.random() * cards.length)] } as currentCard,
+      currentCard: {} as processedCard,
       currentPlayer: players[0],
+      cardTimeout: Math.floor(0.7 * cards.length),
     };
   }
 
@@ -55,26 +60,44 @@ class App extends React.Component<{}, State> {
   nextCard = () => {
     let cards = this.state.cards;
     let previousCards = this.state.previousCards;
+    let activeCards = this.state.activeCards;
     let currentCard = this.state.currentCard;
 
     const currentIndex = this.state.players.indexOf(this.state.currentPlayer ?? this.state.players[0]);
     const currentPlayer = this.state.players[(currentIndex + 1) % this.state.players.length];
 
+    for (const card of activeCards) {
+      console.log(`cardPlayer: ${card.player}\ncurrentPlayer: ${currentPlayer}\nequals: ${card.player === currentPlayer}\nduration: ${card.duration}`);
+      if (card.player !== currentPlayer) continue;
+      card.duration--;
+      if (card.duration > 0) continue;
+      activeCards.splice(activeCards.indexOf(card), 1)
+      console.log({ activeCards });
+    }
+
+    // Add to active cards
+    if (currentCard.duration > 0) {
+      const activeCard: activeCard = { ...currentCard, player: this.state.currentPlayer };
+      activeCards.push(activeCard);
+
+    }
+
     // Remove card from previouscards if there is too many.
-    if (previousCards.length === 18) {
+    if (previousCards.length === this.state.cardTimeout) {
       cards.push(previousCards.shift()!);
     }
 
     // Add current card to previous cards.
-    previousCards.push(currentCard.raw);
+    const previousCard = { ...currentCard };
+    previousCards.push(previousCard);
 
     // Set new random card as current card.
     const newCardIndex = Math.floor(Math.random() * cards.length);
-    currentCard.raw = this.state.cards[newCardIndex];
-    currentCard.processed = this.processCard(currentCard.raw, currentPlayer);
-    cards = cards.filter((_, i) => i !== newCardIndex);
+    const newCard = cards[newCardIndex];
+    currentCard = this.processCard(newCard, currentPlayer);
+    cards.splice(newCardIndex, 1);
 
-    this.setState({ currentCard, previousCards, cards, currentPlayer, });
+    this.setState({ currentCard, previousCards, cards, currentPlayer, activeCards });
   }
 
   shufflePlayers = () => {
@@ -85,17 +108,19 @@ class App extends React.Component<{}, State> {
   reset = () => {
     this.setState({
       previousCards: [],
-      currentCard: { raw: cards[0] as Card } as currentCard,
+      currentCard: {} as processedCard,
       currentPlayer: "",
-      cards: cards as Card[],
+      cards: cardsJson as Card[],
       players: [],
     });
   }
 
   processCard(card: Card, player: string = this.state.currentPlayer): processedCard {
     let text = card.text as string;
+    let output = { ...card } as unknown as processedCard;
+
     const players = this.state.players;
-    if (card.duration === undefined) card.duration = 0
+    if (output.duration === undefined) output.duration = 0
 
     // Previous/next/current player
     const currentIndex = players.indexOf(player ?? players[0]);
@@ -115,11 +140,11 @@ class App extends React.Component<{}, State> {
 
 
     // Replace placeholders
-    const newText = text.replace(/ /g, "~ ").split("~").map(substring => {
+    const processedText = text.replace(/ /g, "~ ").split("~").map(substring => {
       if (substring.match(/%PreviousPlayer%/)) return <> <var>{players[prevIndex]}</var></>;
       if (substring.match(/%NextPlayer%/)) return <> <var>{players[nextIndex]}</var></>;
       if (substring.match(/%Self%/)) return <> <var><u>{player}</u></var></>;
-      if (substring.match(/%Rounds%/)) return <> <var>{card.duration}</var> {`round${card.duration! > 1 ? "s" : ""}`}</>;
+      if (substring.match(/%Rounds%/)) return <> <var>{output.duration}</var> {`round${output.duration! > 1 ? "s" : ""}`}</>;
 
       if (substring.match(/%Player[0-9]%/)) {
         const randomPlayer = randomPlayers.find(p => p.placeholder === substring.trim());
@@ -131,7 +156,7 @@ class App extends React.Component<{}, State> {
       return substring;
     });
 
-    return { ...card, text: newText };
+    return { ...output, processedText };
   }
 
   sceneHandler = () => {
@@ -140,7 +165,6 @@ class App extends React.Component<{}, State> {
       currentCard,
       activeCards,
       currentPlayer,
-      showPlayers
     } = this.state
 
     if (players.length > 3)
@@ -154,21 +178,15 @@ class App extends React.Component<{}, State> {
   }
 
   componentDidMount() {
-    if (this.state.currentCard.processed === undefined) {
-      this.setState({
-        currentCard: {
-          ...this.state.currentCard,
-          processed: this.processCard(this.state.currentCard.raw)
-        }
-      });
+    const currentCard = this.processCard(this.state.cards[Math.floor(Math.random() * this.state.cards.length)]);
+    if (this.state.currentCard.processedText === undefined) {
+      this.setState({ currentCard });
     }
   }
 
   render(): ReactNode {
     const {
       players,
-      currentCard,
-      activeCards,
       currentPlayer,
       addPlayer,
       showPlayers
@@ -209,10 +227,12 @@ class App extends React.Component<{}, State> {
 interface State {
   players: string[];
   cards: Card[];
-  currentCard: currentCard;
+  currentCard: processedCard;
   previousCards: Card[];
-  activeCards: currentCard[];
+  activeCards: activeCard[];
   currentPlayer: string;
+
+  cardTimeout: number;
 
   addPlayer: boolean;
   showPlayers: boolean;

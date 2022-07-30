@@ -1,16 +1,20 @@
 export interface Card {
+  processedText: any;
   title: string | undefined;
   text: string;
   background: string | undefined;
-  color: string | undefined;
   duration: number | undefined;
 }
 
-export interface processedCard extends Omit<Card, "text"> {
-  text: (string | JSX.Element)[];
+export interface processedCard {
+  title: string | undefined;
+  text: string;
+  processedText: (string | JSX.Element)[];
+
+  background: string | undefined;
+  duration: number;
 }
 
-export interface currentCard {
-  raw: Card;
-  processed: processedCard;
+export interface activeCard extends processedCard {
+  player: string;
 }

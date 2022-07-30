@@ -1,41 +1,30 @@
-import * as CardType from "types/card";
+import { processedCard } from "types/card";
 import React from "react";
 import styles from "./card.module.scss";
-import { motion } from "framer-motion";
 
 class Card extends React.Component<Props> {
 
     render() {
-        let card = this.props.card.processed;
+        const { card, preview, nextCard } = this.props;
         let cardStyle = {};
         card.background && (cardStyle = { ...cardStyle, backgroundImage: `url(${card.background}` });
-        card.color && (cardStyle = { ...cardStyle, color: card.color });
 
         return (
-            <motion.article
-                key={this.props.card.raw.text}
-                initial={{ rotate: 90, scale: 0 }}
-                animate={{ rotate: 0, scale: 1 }}
-                transition={{
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 19
-                }}
-
-                className={[styles.main, styles.noselect].join(" ")}
+            <article
                 style={cardStyle}
-
-                onClick={this.props.nextCard}
+                className={[styles.main, styles.noselect].join(" ")}
+                onClick={nextCard}
             >
-                {card.title ? <h1>{card.title}</h1> : null}
-                <p>{card.text}</p>
-            </motion.article>
+                {card.title && !preview && <h1>{card.title}</h1>}
+                <p>{card.processedText}</p>
+            </article>
         )
     }
 }
 
 interface Props {
-    card: CardType.currentCard;
+    card: processedCard;
+    preview: boolean;
     nextCard: () => void;
 }
 
