@@ -3,16 +3,16 @@ export interface Card {
   title: string | undefined;
   text: string;
   background: string | undefined;
-  duration: number | undefined;
+  turns: number | undefined;
 }
 
 export interface processedCard {
   title: string | undefined;
   text: string;
-  processedText: (string | JSX.Element)[];
+  processedText: (string | JSX.IntrinsicElements["var"])[];
 
   background: string | undefined;
-  duration: number;
+  turns: number;
 }
 
 export interface activeCard extends processedCard {

@@ -1,35 +1,47 @@
-import { activeCard, Card, processedCard } from "types/card";
 import React from "react";
 import { ReactNode } from "react";
 import styles from "styles/App.module.scss";
 import shuffle from "util/shuffle";
-import cardsJson from "../cards.json";
+
 import Menu from "components/menu";
 import PlayerList from "components/playerlist";
 import CardContainer from "components/cardcontainer";
 
-import discordCards from "../cards/discord.pack.json";
+import { activeCard, Card, processedCard } from "types/card";
+import { cardPack } from "types/pack";
+
+import basePack from "cards/base1.pack.json";
+import discordPack from "cards/discord.pack.json";
 
 class App extends React.Component<{}, State> {
 
   constructor(props: {}) {
     super(props);
     const players = ["Trinity", "Josh", "Armex", "Usyer", "Pigeon", "Cayde", "Kiwi", "Chépa", "johnas smithas", "Jason"]
-    //const cards = cardsJson as Card[];
-    const cards = discordCards.cards as Card[];
+    const cards = this.compileCardPack([basePack as cardPack, discordPack as cardPack])
 
     this.state = {
       addPlayer: false,
       showPlayers: false,
-
-      players,
       cards,
+      players,
       previousCards: [],
       activeCards: [],
       currentCard: {} as processedCard,
       currentPlayer: players[0],
-      cardTimeout: Math.floor(0.7 * cards.length),
+      cardTimeout: Math.floor(0.85 * cards.length),
     };
+  }
+
+  compileCardPack = (packs: cardPack[]): Card[] => {
+    const cards = new Map<string, Card>();
+    for (const pack of packs) {
+      for (const card of pack.cards) {
+        if (!card.text) continue;
+        cards.set(card.text, card);
+      }
+    }
+    return Array.from(cards, ([_, value]) => (value));
   }
 
   deletePlayer = (player: string) => {
@@ -66,17 +78,15 @@ class App extends React.Component<{}, State> {
     const currentIndex = this.state.players.indexOf(this.state.currentPlayer ?? this.state.players[0]);
     const currentPlayer = this.state.players[(currentIndex + 1) % this.state.players.length];
 
-    for (const card of activeCards) {
-      console.log(`cardPlayer: ${card.player}\ncurrentPlayer: ${currentPlayer}\nequals: ${card.player === currentPlayer}\nduration: ${card.duration}`);
-      if (card.player !== currentPlayer) continue;
-      card.duration--;
-      if (card.duration > 0) continue;
-      activeCards.splice(activeCards.indexOf(card), 1)
-      console.log({ activeCards });
-    }
+
+    activeCards = activeCards.map((card) => {
+      card.turns--;
+      if (card.turns > 0) return card
+      else return null
+    }).filter((card) => card !== null) as activeCard[];
 
     // Add to active cards
-    if (currentCard.duration > 0) {
+    if (currentCard.turns > 0) {
       const activeCard: activeCard = { ...currentCard, player: this.state.currentPlayer };
       activeCards.push(activeCard);
 
@@ -106,11 +116,13 @@ class App extends React.Component<{}, State> {
   }
 
   reset = () => {
+    const cards = discordPack.cards as Card[];
+
     this.setState({
       previousCards: [],
       currentCard: {} as processedCard,
       currentPlayer: "",
-      cards: cardsJson as Card[],
+      cards,
       players: [],
     });
   }
@@ -120,7 +132,7 @@ class App extends React.Component<{}, State> {
     let output = { ...card } as unknown as processedCard;
 
     const players = this.state.players;
-    if (output.duration === undefined) output.duration = 0
+    if (output.turns === undefined) output.turns = 0
 
     // Previous/next/current player
     const currentIndex = players.indexOf(player ?? players[0]);
@@ -144,11 +156,10 @@ class App extends React.Component<{}, State> {
       if (substring.match(/%PreviousPlayer%/)) return <> <var>{players[prevIndex]}</var></>;
       if (substring.match(/%NextPlayer%/)) return <> <var>{players[nextIndex]}</var></>;
       if (substring.match(/%Self%/)) return <> <var><u>{player}</u></var></>;
-      if (substring.match(/%Rounds%/)) return <> <var>{output.duration}</var> {`round${output.duration! > 1 ? "s" : ""}`}</>;
+      // if (substring.match(/%Turns%/)) return <> <var id="turns">{output.turns}</var> {`turn${output.turns! > 1 ? "s" : ""}`}</>;
 
       if (substring.match(/%Player[0-9]%/)) {
         const randomPlayer = randomPlayers.find(p => p.placeholder === substring.trim());
-        console.log({ randomPlayer, substring });
 
         if (randomPlayer) return <> <var>{randomPlayer.name}</var></>;
       }

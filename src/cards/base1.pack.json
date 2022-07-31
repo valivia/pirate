@@ -1,0 +1,439 @@
+{
+    "title": "Base Pack 1",
+    "description": "Default card set.",
+    "cards": [
+        {
+            "title": "It's perfectly normal, okay?",
+            "text": "Drink if you've ever thought a cartoon character was hot",
+            "background": "https://c.tenor.com/_EFzZ_HmYyIAAAAC/stolas-stolas-helluva-boss.gif"
+        },
+        {
+            "title": "Interrogation",
+            "text": "Drink if you've ever willingly commited a crime",
+            "background": "https://c.tenor.com/1AhUNYnySx4AAAAd/f-bi-raid.gif"
+        },
+        {
+            "title": "The calcium deficient",
+            "text": "Drink if you've ever broken a bone",
+            "background": "https://c.tenor.com/Lwn2wbmAXboAAAAd/skeleton.gif"
+        },
+        {
+            "title": "Meow",
+            "text": "All cat owners drink",
+            "background": "https://cdn.discordapp.com/attachments/536195477079851028/1002692094151884951/image0.jpg"
+        },
+        {
+            "title": "Bark",
+            "text": "All dog owners drink",
+            "background": "https://cdn.discordapp.com/attachments/536195477079851028/1002691689246367754/received_552322023239967.jpeg"
+        },
+        {
+            "title": "Hoot",
+            "text": "Everyone that has owned a bird has to drink",
+            "background": "https://portfolio.xayania.com/media/content/a7e55149-81f1-4584-bc06-33b365607a1e_low.jpg"
+        },
+        {
+            "title": "✂️",
+            "text": "The girl with the shortest hair must drink",
+            "background": "https://cdn.discordapp.com/attachments/536195477079851028/1002692693769601054/raven_dc_comic_fanart_2020_4k_hd_superheroes.jpg"
+        },
+        {
+            "title": "💪",
+            "text": "If you play any sports, drink",
+            "background": "https://c.tenor.com/bro_k1agbW4AAAAd/muscle-morph.gif"
+        },
+        {
+            "title": "0's and 1's",
+            "text": "Drink if you know how to code",
+            "background": "https://c.tenor.com/D8GSu_9yYmAAAAAC/urkel-steve-urkel.gif"
+        },
+        {
+            "title": "Higher Education",
+            "text": "Take a drink if you're in college or university"
+        },
+        {
+            "title": "Keepin' Hydrated",
+            "text": "Drink if you've had water since the start of the game",
+            "background": "https://cdn.discordapp.com/attachments/737282374714523738/1003084999060369469/ezgif-5-a40cb322f5.gif"
+        },
+        {
+            "title": "Clean Palate",
+            "text": "Anyone with a chaser must drink"
+        },
+        {
+            "title": "Heavy Drinker",
+            "text": "The person who's drinking the drink with the highest % chooses someone to drink"
+        },
+        {
+            "title": "OBEY.",
+            "text": "%Self% can ban a word for %Turns%",
+            "background": "https://c.tenor.com/qmSIzc-H7vIAAAAC/1984.gif",
+            "turns": 5
+        },
+        {
+            "title": "Scavenger Hunt!",
+            "text": "First person to get a toilet roll DOESN'T drink",
+            "background": "https://cdn.discordapp.com/attachments/1002929197183934524/1002941215030919209/unknown.png"
+        },
+        {
+            "title": "Scavenger Hunt!",
+            "text": "First person to get a fork DOESN'T drink",
+            "background": "https://cdn.discordapp.com/attachments/1002929197183934524/1002941276703953047/unknown.png"
+        },
+        {
+            "title": "Scavenger Hunt!",
+            "text": "First person to get a battery DOESN'T drink",
+            "background": "https://cdn.discordapp.com/attachments/1002929197183934524/1002941326788149360/unknown.png"
+        },
+        {
+            "title": "Scavenger Hunt!",
+            "text": "First person to get a pillow DOESN'T drink",
+            "background": "https://cdn.discordapp.com/attachments/1002929197183934524/1002941368567611452/unknown.png"
+        },
+        {
+            "title": "Sound Guru",
+            "text": "Drink if you have more than one pair of headphones",
+            "background": "https://cdn.discordapp.com/attachments/1002929197183934524/1002940920443981894/unknown.png"
+        },
+        {
+            "title": "Where's That Sound Coming From?",
+            "text": "Drink for every speaker you have (internal and external)",
+            "background": "https://cdn.discordapp.com/attachments/1002929197183934524/1002940639886983268/unknown.png"
+        },
+        {
+            "title": "We appreciate ambition",
+            "text": "Drink for all the different jobs you've had",
+            "background": "https://c.tenor.com/6D7KmYWYvhAAAAAC/johnny-sins-doctor.gif"
+        },
+        {
+            "title": "Game of sin and vice",
+            "text": "Smokers drink",
+            "background": "https://c.tenor.com/lXrTXpd6W8YAAAAd/jadeyanh-vylerria.gif"
+        },
+        {
+            "title": "Drop and give me 10",
+            "text": "Do 10 pushups or take a drink",
+            "background": "https://c.tenor.com/E3jm7mzCWxwAAAAC/exercise-pushups.gif"
+        },
+        {
+            "text": "Last person to touch the wall takes a drink",
+            "background": "https://c.tenor.com/7i0vZSGzPCIAAAAC/donald-trump-wall.gif"
+        },
+        {
+            "title": "Woke up in a right steaming mood",
+            "text": "Everybody must be VERY ANGRY for %Turns%",
+            "background": "https://c.tenor.com/U28L4d0eqF0AAAAd/birmingham-steamy-mood.gif",
+            "turns": 4
+        },
+        {
+            "title": "...",
+            "text": "%Self% can only use chat for %Turns%",
+            "background": "https://c.tenor.com/SR7eygLOfxoAAAAd/nursena-cover-pew.gif",
+            "turns": 4
+        },
+        {
+            "title": "Tower of Babel",
+            "text": "%Self% cannot speak English for %Turns%",
+            "background": "https://cdn.discordapp.com/attachments/992891182495563886/1003038362426421339/unknown.png",
+            "turns": 5
+        },
+        {
+            "title": "The Untrapped Clim",
+            "text": "The person with the best hair must drink",
+            "background": "https://c.tenor.com/oWN5xuoVaRsAAAAC/wearing-a-wig-viralhog.gif"
+        },
+        {
+            "title": "From start to end",
+            "text": "%Self% and the person they've known longest must drink",
+            "background": "https://c.tenor.com/xzfjxLgkcfoAAAAd/black-handshake.gif"
+        },
+        {
+            "title": "Brexit means Brexit",
+            "text": "Drink if English isn't your native language",
+            "background": "https://cdn.discordapp.com/attachments/798915150445936750/1003000401068572692/unknown.png"
+        },
+        {
+            "title": "👁👄👁",
+            "text": "%Self% has to take a drink everytime they blink for %Turns%",
+            "turns": 3
+        },
+        {
+            "title": "🕋",
+            "text": "Alhamdulillah, drink some water",
+            "background": "https://c.tenor.com/klfhGWhyzzYAAAAd/praise-allah.gif"
+        },
+        {
+            "title": "Gotta know what you gotta know",
+            "text": "%Self% must ask %Player1% a question about themselves, if the don't get it right they must drink",
+            "background": "https://cdn.discordapp.com/attachments/798915150445936750/1003003851705700393/unknown.png"
+        },
+        {
+            "title": "A Tad Peckish",
+            "text": "Drink if you have snacks with you",
+            "background": "https://c.tenor.com/G-ImeupyxmIAAAAd/eating-the-chip-chips.gif"
+        },
+        {
+            "title": "A sign of things to come",
+            "text": "The person with the least money must drink",
+            "background": "https://c.tenor.com/UbGii9oGosoAAAAC/money-wallet.gif"
+        },
+        {
+            "title": "Drink the rich",
+            "text": " Anyone with more than 5k in their bank account must drink.",
+            "background": "http://static1.squarespace.com/static/5459984ae4b08b58f1c8df7f/t/54ac4359e4b032a504cb4e80/1420575578892/?format=1500w"
+        },
+        {
+            "title": "Spare some change?",
+            "text": "The person with the most cash on them must drink",
+            "background": "https://cdn.discordapp.com/attachments/798915150445936750/1003006684664430762/unknown.png"
+        },
+        {
+            "title": "🇺🇦 SLAVA UKRAINI 🇺🇦",
+            "text": "Drink if your drink has vodka in it",
+            "background": "https://cdn.discordapp.com/attachments/798915150445936750/1003008395214860349/unknown.png"
+        },
+        {
+            "title": "Alcohol fueled passion",
+            "text": "%Self% must give a passionate speech about how great %Player1% is, then both take a drink"
+        },
+        {
+            "text": "If you're a virgin, L lol, take a drink",
+            "background": "https://c.tenor.com/LIX8OttaVncAAAAC/foss-no-bitches.gif"
+        },
+        {
+            "title": "Hopeless romantic",
+            "text": "Drink if you're single",
+            "background": "https://c.tenor.com/Of3G2xp7fvkAAAAd/italy-old-man.gif"
+        },
+        {
+            "title": "Alcoholics unanonymous",
+            "text": "As a group, choose the most sober person, they must down their drink",
+            "background": "https://c.tenor.com/OV-C3xzbr34AAAAd/jewish-wedding-jewish-dance.gif"
+        },
+        {
+            "title": "Where has it gone?",
+            "text": "Drink if your drink has rum in it",
+            "background": "https://c.tenor.com/Jj7FvEH9gd8AAAAC/tip-hat-jack-sparrow.gif"
+        },
+        {
+            "title": "Blasting to retirement",
+            "text": "Oldest person drinks",
+            "background": "https://c.tenor.com/eDFm2GAa6MwAAAAd/dancing-oldman.gif"
+        },
+        {
+            "title": "🧢",
+            "text": "%Self% cannot tell the truth for %Turns%",
+            "background": "https://i.ytimg.com/vi/WWbHD5OQx3w/maxresdefault.jpg",
+            "turns": 2
+        },
+        {
+            "title": "And so it is...",
+            "text": "Everybody must end their sentence with \"and so it is\" for %Turns%",
+            "turns": 4
+        },
+        {
+            "title": "Table for one",
+            "text": "drink if you ate dinner alone.",
+            "background": "https://c.tenor.com/2AfigOa0tvsAAAAd/the-weeknd-eating.gif"
+        },
+        {
+            "title": "Starting early",
+            "text": "Youngest person drinks",
+            "background": "https://cdn.discordapp.com/attachments/798915150445936750/1003034352961200128/unknown.png"
+        },
+        {
+            "title": "Catfish",
+            "text": "If you've been catfished, drink",
+            "background": "https://c.tenor.com/STh9r7030kQAAAAd/kiss-hehe.gif"
+        },
+        {
+            "text": "%Self% drinks if they answer any question for %Turns% ",
+            "background": "https://c.tenor.com/iZqduxWJYIsAAAAC/awkward-stare.gif",
+            "turns": 3
+        },
+        {
+            "title": "Midnight Explorer",
+            "text": "Drink if you've ever been lost on a night out.",
+            "background": "https://c.tenor.com/mPpEcS_0qNcAAAAd/the-weeknd-super-bowl.gif"
+        },
+        {
+            "title": "🙏 Only the most Christian drinking games 🙏",
+            "text": "Nobody can swear for %Turns%",
+            "background": "https://cdn.discordapp.com/attachments/992891182495563886/1003031346953846924/unknown.png",
+            "turns": 4
+        },
+        {
+            "title": "British cuisine",
+            "text": "%Self% and %Player1% say a meal, the person with the worse meal drinks",
+            "background": "https://cdn.discordapp.com/attachments/536195477079851028/1003029495005073418/briish.jpg"
+        },
+        {
+            "title": "Making due",
+            "text": "Drink if you took a wee somewhere besides a toilet within the last month",
+            "background": "https://cdn.discordapp.com/attachments/992891182495563886/1003054302492897411/unknown.png"
+        },
+        {
+            "title": "Hold it!",
+            "text": "Next person to take a wee must down their drink",
+            "background": "https://cdn.discordapp.com/attachments/992891182495563886/1003031971364089886/unknown.png"
+        },
+        {
+            "title": "Who? When? Where?",
+            "text": "Everyone ignores the existance of %Player1% for %Turns%",
+            "background": "https://c.tenor.com/pAHzSirHy2sAAAAC/peace.gif",
+            "turns": 3
+        },
+        {
+            "title": "Round 2",
+            "text": "Drink if you were drinking yesterday",
+            "background": "https://c.tenor.com/sAKG6wSKRqoAAAAd/drunk-alcoholic.gif"
+        },
+        {
+            "title": "Bush burners",
+            "text": "Stoners drink",
+            "background": "https://c.tenor.com/ClyMemj93gAAAAAd/to-be-continued-snoop-dogg.gif"
+        },
+        {
+            "title": "It's time for bold claims",
+            "text": "Drink for each person you think you could beat in a fight",
+            "background": "https://c.tenor.com/lhKwplW9YXUAAAAC/drunk-fight.gif"
+        },
+        {
+            "title": "Play nice please",
+            "text": "Everyone gives %Self% a compliment then takes a drink",
+            "background": "https://c.tenor.com/-LSJ80Ja_ZYAAAAC/stromman-excited.gif"
+        },
+        {
+            "title": "Cracker Island",
+            "text": "People from the UK and Ireland must drink",
+            "background": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.animationmagazine.net%2Fwordpress%2Fwp-content%2Fuploads%2FGorillaz-Cracker-Island.jpg"
+        },
+        {
+            "title": "Drunk Pirate ft. Pitbull",
+            "text": "Drink for every country you've been to",
+            "background": "https://cdn.discordapp.com/attachments/992891182495563886/1003026906263863336/unknown.png"
+        },
+        {
+            "title": "Happy birthday?",
+            "text": "%Self% must drink if they can't say the birthday of %Player1%",
+            "background": "https://c.tenor.com/VB0BfGA7neYAAAAC/fat-guy-shooting.gif"
+        },
+        {
+            "title": "🇺🇸",
+            "text": "If you've ever shot a gun, take a drink",
+            "background": "https://c.tenor.com/VB0BfGA7neYAAAAC/fat-guy-shooting.gif"
+        },
+        {
+            "title": "Mistakes are to be made",
+            "text": "Everyone chooses the drunkest person, they must drink",
+            "background": "https://c.tenor.com/lW8UhyWP6cgAAAAd/man-collapsing-tokyojns.gif"
+        },
+        {
+            "title": "Overdressed",
+            "text": "Vote for who is most fancily dressed, they must drink",
+            "background": "https://i.ytimg.com/vi/iP2q4-uE2jI/maxresdefault.jpg"
+        },
+        {
+            "title": "Pick Your Poison",
+            "text": "%Self% must take a dare from %Player1% or down their drink"
+        },
+        {
+            "title": "Short King",
+            "text": "Shortest person must choose someone to drink",
+            "background": "https://cdn.discordapp.com/attachments/536195477079851028/1003016489768599582/unknown.png"
+        },
+        {
+            "title": "Tall Queen",
+            "text": "Tallest person must pick someone to drink",
+            "background": "https://media.discordapp.net/attachments/536195477079851028/1003045138781704302/unknown.png"
+        },
+        {
+            "title": "🤓",
+            "text": "Everyone wearing glasses must drink",
+            "background": "https://c.tenor.com/Mxgk7rxrzq8AAAAC/lithiumare-kiracord.gif"
+        },
+        {
+            "title": "Touch grass",
+            "text": "Drink if you've used twitter in the past 24 hours",
+            "background": "https://www.chrisjameslandscaping.com/wp-content/uploads/2019/07/How-to-Care-For-Your-Lawn-in-Every-Season-in-New-Jersey-1024x587.jpg"
+        },
+        {
+            "title": "Jebus",
+            "text": "The guy with the longest hair must drink",
+            "background": "https://media.discordapp.net/attachments/536195477079851028/1003042234746290327/unknown.png"
+        },
+        {
+            "title": "Stuff happens yknow",
+            "text": "Drink if you've ever been in a fight",
+            "background": "https://c.tenor.com/RYkzREdM9mEAAAAd/punches-punching.gif"
+        },
+        {
+            "title": "Delinquent",
+            "text": "Drink if you've ever bunked off school"
+        },
+        {
+            "title": "Inked Up",
+            "text": "Take a drink if you have a tattoo"
+        },
+        {
+            "title": "Commander In Cheat",
+            "text": "Drink if you've cheated on a test"
+        },
+        {
+            "title": "Rock For Dinner",
+            "text": "Take a drink if you've ever chipped a tooth"
+        },
+        {
+            "title": "Self-made Hair Stylist",
+            "text": "Drink if you've ever cut your own hair",
+            "background": "https://c.tenor.com/XIxAiJb6tjsAAAAS/cat-getting-faded-hair-cut.gif"
+        },
+        {
+            "title": "Feeling Sleepy?",
+            "text": "Drink if you've gone under general anaesthetic before",
+            "background": "https://c.tenor.com/BdS6KadQDDYAAAAS/sleepy-tired.gif"
+        },
+        {
+            "title": "Who Wears The Pants?",
+            "text": "Drink if you've ever gone commando in public"
+        },
+        {
+            "title": "Generous Soul",
+            "text": "Drink if you've donated blood"
+        },
+        {
+            "title": "Bruiser",
+            "text": "Drink if you've had a black eye before",
+            "background": "https://c.tenor.com/noxQqJwebksAAAAC/quagmire-brian-griffin.gif"
+        },
+        {
+            "title": "Kind Words",
+            "text": "%Self% and %Player1% must pay each other a compliment and drink",
+            "background": "https://c.tenor.com/-qBvHf37JNoAAAAC/kitten-kiss.gif"
+        },
+        {
+            "title": "Hit 'Em Where It Hurts",
+            "text": "%Self% and %Player1% must insult each other and drink",
+            "background": "https://c.tenor.com/Fs9txj8k2HoAAAAd/fraz-bradford.gif"
+        },
+        {
+            "title": "Quickfire Opinions",
+            "text": "%Self% and %Player1% must agree on anything at all, or drink",
+            "background": "https://c.tenor.com/lzYHtGf_6T0AAAAS/predator-hand-shake.gif"
+        },
+        {
+            "title": "Rock, Paper, Scissors, Drink!",
+            "text": "%Self% and %Player1% must play Rock, Paper, Scissors. Whoever wins gets to choose someone to drink!"
+        },
+        {
+            "title": "Raise a glass!",
+            "text": "Drink if you want!",
+            "background": "https://c.tenor.com/3MIAV8TLBoYAAAAC/shaun-cheers.gif"
+        },
+        {
+            "title": "Cheers!",
+            "text": "Everyone drinks!",
+            "background": "https://c.tenor.com/IErQHBRt6GIAAAAS/leonardo-dicaprio.gif"
+        }
+    ]
+}
