@@ -2,7 +2,7 @@
 
 .main {
   display: grid;
-  grid-template-columns: minmax(300px, 15%) 85%;
+  grid-template-columns: min-content auto;
   grid-template-areas: "sidebar main";
   min-height: 100vh;
   max-height: 100vh;

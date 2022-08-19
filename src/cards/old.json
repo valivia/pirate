@@ -1,4 +1,4 @@
-[ 
+[
     {
         "text": "Everyone chooses the person with the worst music taste, they must drink"
     },
@@ -20,16 +20,12 @@
     {
         "text": "Everyone chooses the meanest person, they must drink"
     },
-
-
-
     {
         "text": "Blue eyed people drink"
     },
     {
         "text": "Browned eyed people drink"
     },
-
     {
         "text": "Unemployed people drink"
     },
@@ -41,10 +37,6 @@
     },
     {
         "text": "Everyone religious must drink"
-    },
-
-    {
-        "text": "Everyone with a piercing must drink"
     },
     {
         "text": "Everyone with a tattoo must drink"
@@ -64,115 +56,100 @@
     {
         "text": "The tallest person must drink"
     },
-
     {
-        "text": "%Self% has to give everyone a compliment then take a drink"
+        "text": "%SELF% has to give everyone a compliment then take a drink"
     },
-
-
-
     {
-        "text": "%Self% has to call/DM someone and tell them you love them"
+        "text": "%SELF% has to call/DM someone and tell them you love them"
     },
     {
         "text": "Drink for every letter in your name"
     },
     {
-        "text": "%Self% must let %Player1% send a message to someone on their device"
+        "text": "%SELF% must let %PLAYER1% send a message to someone on their device"
     },
     {
-        "text": "%Self% can make a rule for %Turns%",
+        "text": "%SELF% can make a rule for %TURNS%",
         "turns": 2
     },
     {
-        "text": "%Self% cannot use their hands for %Turns%",
+        "text": "%SELF% cannot use their hands for %TURNS%",
         "turns": 1
     },
     {
-        "text": "%Self% must drink double for %Turns%",
+        "text": "%SELF% must drink double for %TURNS%",
         "turns": 1
     },
     {
-        "text": "%Self% must drink any time %Player1% or %Player2% drinks for %Turns%",
+        "text": "%SELF% must drink any time %PLAYER1% or %PLAYER2% drinks for %TURNS%",
         "turns": 1
     },
-
-
     {
-        "text": "%Self% must drink!"
+        "text": "%SELF% must drink!"
     },
     {
-        "text": "%Self% chooses someone to drink"
+        "text": "%SELF% chooses someone to drink"
     },
     {
         "text": "Everyone chooses someone to drink"
     },
     {
         "title": "Besties",
-        "text": "Everyone drinks except %Self% and a person of their choosing"
+        "text": "Everyone drinks except %SELF% and a person of their choosing"
     },
     {
         "title": "Two lies, one truth",
-        "text": "%Self% says two lies and one truth, everyone who picks a lie must drink"
+        "text": "%SELF% says two lies and one truth, everyone who picks a lie must drink"
     },
     {
         "title": "Two truths, one lie",
-        "text": "%Self% says two truths and one lie, everyone who picks a truth must drink"
+        "text": "%SELF% says two truths and one lie, everyone who picks a truth must drink"
     },
     {
         "title": "Would you rather",
-        "text": "play would you rather, the smaller group must drink, if tied both drink, %Self% asks the question"
+        "text": "play would you rather, the smaller group must drink, if tied both drink, %SELF% asks the question"
     },
     {
         "title": "Truth or Truth",
-        "text": "%Self% must ask someone of their choosing a question, they must answer truthfully"
+        "text": "%SELF% must ask someone of their choosing a question, they must answer truthfully"
     },
     {
         "text": "Drink if your drink is mixed"
     },
-
-
     {
         "text": "Drink if your drink has gin in it"
     },
     {
-        "text": "%Self% and the person they've known the longest must drink"
-    },
-    {
-        "text": "%Self% tells everyone their favourite weird pizza topping then drinks"
+        "text": "%SELF% tells everyone their favourite weird pizza topping then drinks"
     },
     {
         "text": "Name a phobia you have then drink"
     },
     {
-        "text": "%Self% must do what %Player1% tells them to, if you can't, take a drink"
+        "text": "%SELF% must do what %PLAYER1% tells them to, if you can't, take a drink"
     },
     {
-        "text": "%Self% must guess the song that's playing, if there's no music or you guess wrong, drink"
+        "text": "%SELF% must guess the song that's playing, if there's no music or you guess wrong, drink"
     },
     {
-        "text": "Nobody can speak at the same time as anyone else for %Turns%",
+        "text": "Nobody can speak at the same time as anyone else for %TURNS%",
         "turns": 1
     },
     {
-        "text": "The shortest person must sit on the ground for %Turns%",
+        "text": "The shortest person must sit on the ground for %TURNS%",
         "turns": 1
     },
     {
-        "text": "%Self% must close their eyes for %Turns%",
+        "text": "%SELF% must close their eyes for %TURNS%",
         "turns": 1
     },
     {
-        "text": "The tallest person must stand up for %Turns%",
+        "text": "The tallest person must stand up for %TURNS%",
         "turns": 1
     },
-    
-
-
     {
-        "text": "%Self% ask %Player1% a general knowledge question, if they don't get it right they must drink"
+        "text": "%SELF% ask %PLAYER1% a general knowledge question, if they don't get it right they must drink"
     },
-
     {
         "text": "Everyone must do 10 pushups, if you can't then take a drink"
     }

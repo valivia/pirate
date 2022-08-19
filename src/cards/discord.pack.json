@@ -5,62 +5,79 @@
         {
             "title": "Kiwi Leave",
             "text": "Next person to leave the room has to down their drink",
-            "background": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fichef.bbci.co.uk%2Fimages%2Fic%2F1200x675%2Fp07l22b7.jpg&f=1&nofb=1"
+            "id": "e58f73b1-7eaa-40f9-b19e-908f60f80b34",
+            "hasImage": true
         },
         {
             "title": "Trinity",
             "text": "Everyone that has had their heart broken has to drink",
-            "background": "https://cdn.discordapp.com/attachments/536195477079851028/1002735375661400194/Screenshot_20220729-232425_Gallery.jpg"
+            "id": "b0009a7c-b781-408a-ba46-0d18ef02f383",
+            "hasImage": true
         },
         {
             "title": "Dane",
             "text": "If you uploaded cringy Youtube videos as a child you have to drink",
-            "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002306870167470100/sad_and_lonely.png"
+            "id": "b9dd93cd-75fd-40bc-93dd-70be64bbaf38",
+            "hasImage": true
         },
         {
             "title": "Angus",
             "text": "If you had McDonald's this month drink",
-            "background": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.business-opportunities.biz%2Fwp-content%2Fuploads%2F2014%2F07%2Fmcdonalds1.png&f=1&nofb=1"
+            "id": "a5f82745-a43e-43ab-a2f2-15afe3c8d25f",
+            "hasImage": true
         },
         {
             "title": "Joschi",
             "text": "The kinkiest player has to drink",
-            "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002311915348971530/Man_in_Black_Latex_Catsuit.jpeg"
+            "id": "519f9292-5767-4b34-97f1-1ce5fa54aa92",
+            "hasImage": true
         },
         {
             "title": "The gamer",
             "text": "If you haven't left your house today, you have to drink",
-            "background": "https://cdn.discordapp.com/attachments/535494948288462858/726230553736773632/razer_chroma_ramos.gif"
+            "id": "dfd2dab5-494d-4958-aa65-dc077320ad21",
+            "hasImage": true
         },
         {
             "title": "The Josh",
-            "text": "%Self% must down their drink",
-            "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002304675451777115/birddog.png"
+            "text": "%SELF% must down their drink",
+            "id": "0937012f-b4d2-4b0d-9cac-67715a822889",
+            "hasImage": true
         },
         {
             "title": "The Pigeon",
             "text": "Everyone who has had unprotected sex, drink",
-            "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002306244834504784/sdgsg.png"
+            "id": "e27a20e4-c65f-4eab-a192-78177c92df3f",
+            "hasImage": true
         },
         {
             "title": "Clara's curse",
             "text": "Everyone that isnt straight has to drink",
-            "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002309860618162326/IMG20220728222118.jpg"
+            "id": "7a59703f-5f4a-45b9-900d-02732b60f3cc",
+            "hasImage": true
         },
         {
             "title": "Good boy",
             "text": "Everyone under 5\"9 has to drink",
-            "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002310560148357191/jason.png"
+            "id": "3511a8fe-dfc3-418e-a91b-0ecfdd63e040",
+            "hasImage": true
         },
         {
             "title": "Maidenless",
             "text": "All single people have to drink",
-            "background": "https://cdn.discordapp.com/attachments/535494948288462858/1002310404602597457/usyer.png"
+            "id": "bc4eea8a-4890-43a7-9aa8-e713bc5705c2",
+            "hasImage": true
         },
         {
             "title": "Jackie's Love",
-            "text": " If %Self% likes monkeys, they choose someone that needs to drink, otherwise they need to drink",
-            "background": "https://cdn.discordapp.com/attachments/712092758378020931/1002379782874464286/tender_jackie.png"
+            "text": " If %SELF% likes monkeys, they choose someone that needs to drink, otherwise they need to drink",
+            "id": "cee6bfb3-e8e0-4161-b12d-e480139b4bd7",
+            "hasImage": true
+        },
+        {
+            "title": "Chris",
+            "text": "%SELF% and %PLAYER1% have to come up with an obscure fact, The person with the least obscure facts has to drink",
+            "background": "https://cdn.discordapp.com/attachments/653044628978794498/1004512219901480980/fan_art.png"
         }
     ]
 }

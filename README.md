@@ -1,13 +1,13 @@
 # card placeholders
 
-Try not to use "you" to refer to the current player and instead use %self%,
+Try not to use "you" to refer to the current player and instead use %SELF%,
 this is to maintain consistency with the rest of the cards.
 
-- `%NextPlayer%` The next player in the list.
-- `%PreviousPlayer%` The previous player in the list.
-- `%Player[0-9]%` reference up to 9 different random players.
-- `%Self%` The current player.
-- `%Turns%` Takes the number from `turns` and puts in `x turn(s)`.
+- `%NEXT_PLAYER%` The next player in the list.
+- `%PREVIOUS_PLAYER%` The previous player in the list.
+- `%PLAYER[0-9]%` reference up to 9 different random players.
+- `%SELF%` The current player.
+- `%TURNS%` Takes the number from `turns` and puts in `x turn(s)`.
 
 # Card options
 
@@ -23,7 +23,7 @@ options with ? are optional.
 ```json
 {
   "title": "Hello",
-  "text": "%Self% has to drink with %NextPlayer%, %Player1% and %Player2% for %Turns%.",
+  "text": "%SELF% has to drink with %NEXT_PLAYER%, %PLAYER1% and %PLAYER2% for %TURNS%.",
   "background": "https:/xxxxxxxxxxxxxx.png",
   "turns": 1
 }

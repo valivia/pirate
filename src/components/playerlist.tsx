@@ -29,7 +29,7 @@ class PlayerList extends React.Component<Props> {
                 initial="hidden"
                 animate="visible"
             >
-                {players.length > 1 ?
+                {players.length > 0 ?
                     players.map((player, index) =>
                         <Player
                             key={player}

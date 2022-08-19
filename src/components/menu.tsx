@@ -21,7 +21,7 @@ class Menu extends React.Component<Props, State> {
                 <section className={styles.buttons}>
 
                     <button
-                        onClick={reset}
+                        onClick={() => window.confirm("Are you sure you want to reset?") && reset()}
                         title="Reset"
                         className={styles.resetButton}
                     >

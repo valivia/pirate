@@ -1,0 +1,55 @@
+@use "styles/vars" as *;
+
+.main {
+    grid-area: main;
+    background-color: $primary;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    background-color: $secondary;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 40px;
+    text-align: center;
+
+    border-radius: 20px;
+
+    & button,
+    input[type="submit"] {
+        background-color: transparent;
+        color: $text;
+        margin: 10px;
+        border: $text 1px solid;
+        padding: 5px;
+        transform: scale(1);
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: $text;
+            color: $secondary;
+        }
+
+        &:active {
+            transform: scale(0.92);
+        }
+    }
+
+    & input[type="text"] {
+        background-color: transparent;
+        border: none;
+        border-bottom: $text 2px solid;
+        color: $text;
+        padding: 5px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

@@ -2,8 +2,10 @@ export interface Card {
   processedText: any;
   title: string | undefined;
   text: string;
-  background: string | undefined;
   turns: number | undefined;
+
+  id: string;
+  hasImage: boolean;
 }
 
 export interface processedCard {
@@ -11,8 +13,10 @@ export interface processedCard {
   text: string;
   processedText: (string | JSX.IntrinsicElements["var"])[];
 
-  background: string | undefined;
   turns: number;
+
+  id: string;
+  hasImage: boolean;
 }
 
 export interface activeCard extends processedCard {

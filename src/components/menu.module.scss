@@ -1,6 +1,7 @@
 @use "styles/vars" as *;
 
 .main {
+    min-width: 300px;
     width: 100%;
 
     transition: height 500ms;

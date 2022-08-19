@@ -12,24 +12,26 @@ import { cardPack } from "types/pack";
 
 import basePack from "cards/base1.pack.json";
 import discordPack from "cards/discord.pack.json";
+import Start from "components/start";
 
 class App extends React.Component<{}, State> {
 
   constructor(props: {}) {
     super(props);
-    const players = ["Trinity", "Josh", "Armex", "Usyer", "Pigeon", "Cayde", "Kiwi", "Chépa", "johnas smithas", "Jason"]
+    // const players = ["Trinity", "Josh", "Armex", "Usyer", "Pigeon", "Cayde", "Kiwi", "Chépa", "johnas smithas", "Jason"]
     const cards = this.compileCardPack([basePack as cardPack, discordPack as cardPack])
+    // Math.floor(0.85 * cards.length)
 
     this.state = {
       addPlayer: false,
       showPlayers: false,
       cards,
-      players,
+      players: [],
       previousCards: [],
       activeCards: [],
-      currentCard: {} as processedCard,
-      currentPlayer: players[0],
-      cardTimeout: Math.floor(0.85 * cards.length),
+      currentCard: null as unknown as processedCard,
+      currentPlayer: "",
+      cardTimeout: 0,
     };
   }
 
@@ -38,7 +40,8 @@ class App extends React.Component<{}, State> {
     for (const pack of packs) {
       for (const card of pack.cards) {
         if (!card.text) continue;
-        cards.set(card.text, card);
+        if (!card.id) continue;
+        cards.set(card.id, card);
       }
     }
     return Array.from(cards, ([_, value]) => (value));
@@ -53,11 +56,13 @@ class App extends React.Component<{}, State> {
     window.confirm(`Are you sure you want to delete ${player}?`) && this.setState({ players });
   }
 
-  addPlayer = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  addPlayerKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.key !== "Enter") return;
+    this.addPlayer(e.currentTarget.value);
+  }
 
-    const player = e.currentTarget.value;
+  addPlayer = (player: string) => {
     if (!player) return;
 
     if (this.state.players.find(p => p.toLowerCase() === player.toLowerCase())) {
@@ -116,13 +121,11 @@ class App extends React.Component<{}, State> {
   }
 
   reset = () => {
-    const cards = discordPack.cards as Card[];
-
     this.setState({
       previousCards: [],
       currentCard: {} as processedCard,
       currentPlayer: "",
-      cards,
+      cards: [],
       players: [],
     });
   }
@@ -142,7 +145,7 @@ class App extends React.Component<{}, State> {
 
     // Random players
     let randomPlayers: { name: string, placeholder: string }[] = [];
-    const match = text.match(/%Player[0-9]%/g);
+    const match = text.match(/%PLAYER[0-9]%/g);
     if (match) {
       const playerOptions = players.filter(p => p !== player);
       const uniquePlaceholders = Array.from(new Set([...match]));
@@ -153,12 +156,12 @@ class App extends React.Component<{}, State> {
 
     // Replace placeholders
     const processedText = text.replace(/ /g, "~ ").split("~").map(substring => {
-      if (substring.match(/%PreviousPlayer%/)) return <> <var>{players[prevIndex]}</var></>;
-      if (substring.match(/%NextPlayer%/)) return <> <var>{players[nextIndex]}</var></>;
-      if (substring.match(/%Self%/)) return <> <var><u>{player}</u></var></>;
-      // if (substring.match(/%Turns%/)) return <> <var id="turns">{output.turns}</var> {`turn${output.turns! > 1 ? "s" : ""}`}</>;
+      if (substring.match(/%PREVIOUS_PLAYER%/)) return <> <var>{players[prevIndex]}</var></>;
+      if (substring.match(/%NEXT_PLAYER%/)) return <> <var>{players[nextIndex]}</var></>;
+      if (substring.match(/%SELF%/)) return <> <var><u>{player}</u></var></>;
+      // if (substring.match(/%TURNS%/)) return <> <var id="turns">{output.turns}</var> {`turn${output.turns! > 1 ? "s" : ""}`}</>;
 
-      if (substring.match(/%Player[0-9]%/)) {
+      if (substring.match(/%PLAYER[0-9]%/)) {
         const randomPlayer = randomPlayers.find(p => p.placeholder === substring.trim());
 
         if (randomPlayer) return <> <var>{randomPlayer.name}</var></>;
@@ -178,22 +181,30 @@ class App extends React.Component<{}, State> {
       currentPlayer,
     } = this.state
 
-    if (players.length > 3)
-      return <CardContainer
-        currentCard={currentCard}
-        activeCards={activeCards}
-        currentPlayer={currentPlayer}
-        nextCard={this.nextCard}
+    if (!currentCard || !currentPlayer) {
+      return <Start
+        players={players}
+        addPlayer={this.addPlayer}
+        startGame={this.start}
       />
-    else return <section className={styles.container}>You need at least 2 players to play</section>
+    }
+
+    return <CardContainer
+      currentCard={currentCard}
+      activeCards={activeCards}
+      currentPlayer={currentPlayer}
+      nextCard={this.nextCard}
+    />
   }
 
-  componentDidMount() {
-    const currentCard = this.processCard(this.state.cards[Math.floor(Math.random() * this.state.cards.length)]);
-    if (this.state.currentCard.processedText === undefined) {
-      this.setState({ currentCard });
-    }
+  start = () => {
+    const cards = this.state.cards;
+    const current = cards.splice(Math.floor(Math.random() * cards.length), 1)[0];
+    const currentPlayer = this.state.players[0];
+    const currentCard = this.processCard(current, currentPlayer);
+    this.setState({ currentCard, cards, currentPlayer, cardTimeout: Math.floor(0.85 * cards.length) });
   }
+
 
   render(): ReactNode {
     const {
@@ -209,26 +220,29 @@ class App extends React.Component<{}, State> {
         data-showplayers={showPlayers ? "true" : "false"}
       >
 
-        <section className={styles.sidebar}>
+        {players.length > 0 &&
+          <section className={styles.sidebar}>
 
-          <Menu
-            shufflePlayers={this.shufflePlayers}
-            openAddPlayer={() => this.setState({ addPlayer: !addPlayer })}
-            showPlayers={() => this.setState({ showPlayers: !showPlayers })}
-            addPlayer={this.addPlayer}
-            reset={this.reset}
+            <Menu
+              shufflePlayers={this.shufflePlayers}
+              openAddPlayer={() => this.setState({ addPlayer: !addPlayer })}
+              showPlayers={() => this.setState({ showPlayers: !showPlayers })}
+              addPlayer={this.addPlayerKey}
+              reset={this.reset}
 
-            isOpen={addPlayer}
-            playersShown={showPlayers}
-          />
+              isOpen={addPlayer}
+              playersShown={showPlayers}
+            />
 
-          <PlayerList
-            players={players}
-            showPlayers={showPlayers}
-            currentPlayer={currentPlayer}
-            deletePlayer={this.deletePlayer}
-          />
-        </section>
+            <PlayerList
+              players={players}
+              showPlayers={showPlayers}
+              currentPlayer={currentPlayer}
+              deletePlayer={this.deletePlayer}
+            />
+          </section>
+        }
+
         <this.sceneHandler />
       </main >
     );

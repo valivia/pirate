@@ -8,13 +8,13 @@ class Card extends React.Component<Props> {
         const { card, preview, nextCard } = this.props;
         let cardStyle = {};
 
-        card.background && (cardStyle = { ...cardStyle, backgroundImage: `url(${card.background}` });
+        card.hasImage && (cardStyle = { backgroundImage: `url(/cards/${card.id}` });
         let text = card.processedText
 
         if (card.turns) {
             text = card.processedText.map(substring => {
                 if (typeof substring !== "string") return substring;
-                if (!substring.match(/%Turns%/g)) return substring;
+                if (!substring.match(/%TURNS%/g)) return substring;
                 return <> <var id="turns">{card.turns}</var> {`turn${card.turns! > 1 ? "s" : ""}`}</>;
             })
         }
