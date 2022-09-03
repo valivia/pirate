@@ -6,7 +6,7 @@ import styles from "./cardcontainer.module.scss";
 
 class CardContainer extends React.Component<Props> {
     render(): React.ReactNode {
-        const { currentCard, currentPlayer, activeCards, nextCard } = this.props;
+        const { currentCard, currentPlayer, activeCards, nextCard, deleteCard } = this.props;
         return (
             <section className={styles.main}>
                 <h1 className={styles.turn}>{currentPlayer}'s turn</h1>
@@ -26,7 +26,7 @@ class CardContainer extends React.Component<Props> {
                             <Card
                                 preview={false}
                                 card={currentCard}
-                                nextCard={nextCard}
+                                onClick={nextCard}
                             />
                         </motion.section> :
                         <div>Loading...</div>
@@ -49,7 +49,7 @@ class CardContainer extends React.Component<Props> {
                                 preview={true}
                                 key={index}
                                 card={card}
-                                nextCard={() => null}
+                                onClick={() => deleteCard(card.id)}
                             />
                         </motion.div>
                     ))}
@@ -63,6 +63,7 @@ interface Props {
     currentCard: processedCard;
     activeCards: activeCard[];
     nextCard: () => void;
+    deleteCard: (x: string) => void;
 }
 
 
