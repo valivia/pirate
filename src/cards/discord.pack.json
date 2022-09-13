@@ -1,83 +1,84 @@
 {
-    "title": "Discord Pack",
-    "description": "Discord friend group shit",
-    "cards": [
-        {
-            "title": "Kiwi Leave",
-            "text": "Next person to leave the room has to down their drink",
-            "id": "e58f73b1-7eaa-40f9-b19e-908f60f80b34",
-            "hasImage": true
-        },
-        {
-            "title": "Trinity",
-            "text": "Everyone that has had their heart broken has to drink",
-            "id": "b0009a7c-b781-408a-ba46-0d18ef02f383",
-            "hasImage": true
-        },
-        {
-            "title": "Dane",
-            "text": "If you uploaded cringy Youtube videos as a child you have to drink",
-            "id": "b9dd93cd-75fd-40bc-93dd-70be64bbaf38",
-            "hasImage": true
-        },
-        {
-            "title": "Angus",
-            "text": "If you had McDonald's this month drink",
-            "id": "a5f82745-a43e-43ab-a2f2-15afe3c8d25f",
-            "hasImage": true
-        },
-        {
-            "title": "Joschi",
-            "text": "The kinkiest player has to drink",
-            "id": "519f9292-5767-4b34-97f1-1ce5fa54aa92",
-            "hasImage": true
-        },
-        {
-            "title": "The gamer",
-            "text": "If you haven't left your house today, you have to drink",
-            "id": "dfd2dab5-494d-4958-aa65-dc077320ad21",
-            "hasImage": true
-        },
-        {
-            "title": "The Josh",
-            "text": "%SELF% must down their drink",
-            "id": "0937012f-b4d2-4b0d-9cac-67715a822889",
-            "hasImage": true
-        },
-        {
-            "title": "The Pigeon",
-            "text": "Everyone who has had unprotected sex, drink",
-            "id": "e27a20e4-c65f-4eab-a192-78177c92df3f",
-            "hasImage": true
-        },
-        {
-            "title": "Clara's curse",
-            "text": "Everyone that isnt straight has to drink",
-            "id": "7a59703f-5f4a-45b9-900d-02732b60f3cc",
-            "hasImage": true
-        },
-        {
-            "title": "Good boy",
-            "text": "Everyone under 5\"9 has to drink",
-            "id": "3511a8fe-dfc3-418e-a91b-0ecfdd63e040",
-            "hasImage": true
-        },
-        {
-            "title": "Maidenless",
-            "text": "All single people have to drink",
-            "id": "bc4eea8a-4890-43a7-9aa8-e713bc5705c2",
-            "hasImage": true
-        },
-        {
-            "title": "Jackie's Love",
-            "text": " If %SELF% likes monkeys, they choose someone that needs to drink, otherwise they need to drink",
-            "id": "cee6bfb3-e8e0-4161-b12d-e480139b4bd7",
-            "hasImage": true
-        },
-        {
-            "title": "Chris",
-            "text": "%SELF% and %PLAYER1% have to come up with an obscure fact, The person with the least obscure facts has to drink",
-            "background": "https://cdn.discordapp.com/attachments/653044628978794498/1004512219901480980/fan_art.png"
-        }
-    ]
+  "title": "Discord Pack",
+  "description": "Discord friend group shit",
+  "cards": [
+    {
+      "title": "Kiwi Leave",
+      "text": "Next person to leave the room has to down their drink",
+      "id": "e58f73b1-7eaa-40f9-b19e-908f60f80b34",
+      "turns": -1,
+      "hasImage": true
+    },
+    {
+      "title": "Trinity",
+      "text": "Everyone that has had their heart broken has to drink",
+      "id": "b0009a7c-b781-408a-ba46-0d18ef02f383",
+      "hasImage": true
+    },
+    {
+      "title": "Dane",
+      "text": "If you uploaded cringy Youtube videos as a child you have to drink",
+      "id": "b9dd93cd-75fd-40bc-93dd-70be64bbaf38",
+      "hasImage": true
+    },
+    {
+      "title": "Angus",
+      "text": "If you had McDonald's this month drink",
+      "id": "a5f82745-a43e-43ab-a2f2-15afe3c8d25f",
+      "hasImage": true
+    },
+    {
+      "title": "Joschi",
+      "text": "The kinkiest player has to drink",
+      "id": "519f9292-5767-4b34-97f1-1ce5fa54aa92",
+      "hasImage": true
+    },
+    {
+      "title": "The gamer",
+      "text": "If you haven't left your house today, you have to drink",
+      "id": "dfd2dab5-494d-4958-aa65-dc077320ad21",
+      "hasImage": true
+    },
+    {
+      "title": "The Josh",
+      "text": "%SELF% must down their drink",
+      "id": "0937012f-b4d2-4b0d-9cac-67715a822889",
+      "hasImage": true
+    },
+    {
+      "title": "The Pigeon",
+      "text": "Everyone who has had unprotected sex, drink",
+      "id": "e27a20e4-c65f-4eab-a192-78177c92df3f",
+      "hasImage": true
+    },
+    {
+      "title": "Clara's curse",
+      "text": "Everyone that isnt straight has to drink",
+      "id": "7a59703f-5f4a-45b9-900d-02732b60f3cc",
+      "hasImage": true
+    },
+    {
+      "title": "Good boy",
+      "text": "Everyone under 5\"9 has to drink",
+      "id": "3511a8fe-dfc3-418e-a91b-0ecfdd63e040",
+      "hasImage": true
+    },
+    {
+      "title": "Maidenless",
+      "text": "All single people have to drink",
+      "id": "bc4eea8a-4890-43a7-9aa8-e713bc5705c2",
+      "hasImage": true
+    },
+    {
+      "title": "Jackie's Love",
+      "text": " If %SELF% likes monkeys, they choose someone that needs to drink, otherwise they need to drink",
+      "id": "cee6bfb3-e8e0-4161-b12d-e480139b4bd7",
+      "hasImage": true
+    },
+    {
+      "title": "Chris",
+      "text": "%SELF% and %PLAYER1% have to come up with an obscure fact, The person with the least obscure facts has to drink",
+      "background": "https://cdn.discordapp.com/attachments/653044628978794498/1004512219901480980/fan_art.png"
+    }
+  ]
 }
