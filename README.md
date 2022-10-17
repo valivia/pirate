@@ -7,7 +7,7 @@ this is to maintain consistency with the rest of the cards.
 - `%PREVIOUS_PLAYER%` The previous player in the list.
 - `%PLAYER[0-9]%` reference up to 9 different random players.
 - `%SELF%` The current player.
-- `%TURNS%` Takes the number from `turns` and puts in `x turn(s)`.
+- `%TURNS%` Takes the number from `turns` and puts in `x turn(s)` (use -1 if you want it to last untill the user dismisses it).
 
 # Card options
 
