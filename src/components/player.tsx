@@ -1,35 +1,35 @@
 import { motion } from "framer-motion";
-import React from "react";
 import styles from "./player.module.scss";
 
-class Player extends React.Component<Props> {
-    render() {
+function Player({ index, player, active, allowDelete, deletePlayer }: Props) {
 
-        const variants = {
-            visible: { opacity: 1, x: 0 },
-            hidden: { opacity: 0, x: -100 },
-        };
+    const variants = {
+        visible: { opacity: 1, x: 0 },
+        hidden: { opacity: 0, x: -100 },
+    };
 
-        return (
-            <motion.article
-                className={styles.main}
-                data-selected={this.props.active}
+    return (
+        <motion.article
+            className={styles.main}
+            data-selected={active}
 
-                transition={{ type: "spring", stiffness: 260, damping: 20, delay: this.props.index * 0.08 }}
-                variants={variants}
-            >
-                <p>{this.props.player}</p>
-                {(!this.props.active && this.props.allowDelete) ?
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: index * 0.08 }}
+            variants={variants}
+        >
+            <p>{player}</p>
+            {
+                (!active && allowDelete) ?
                     <button
-                        onClick={() => this.props.deletePlayer(this.props.player)}
+                        onClick={() => deletePlayer(player)}
                         className={styles.delete}
                     >
                         <i className="material-icons">delete</i>
                     </button>
-                    : <></>}
-            </motion.article >
-        )
-    }
+                    : <></>
+            }
+        </motion.article >
+    )
+
 }
 
 interface Props {
