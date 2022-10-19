@@ -6,8 +6,10 @@ export interface Card {
 
   turns?: number;
   minimum_players?: number;
+  maximum_players?: number;
   time_limit?: number;
   has_image: boolean;
+  is_nsfw: boolean;
 
   parent_card?: string;
 }

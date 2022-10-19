@@ -4,12 +4,12 @@
     "description": "Default card set.",
     "authors": [
         "Usyer",
-        "Kiwi",
         "Creme",
-        "Tetro",
+        "Soporific",
+        "Kiwi",
         "Armex",
-        "Czicken",
-        "Soporific"
+        "Tetro",
+        "Czicken"
     ],
     "has_banner": false,
     "is_official": true,
@@ -1093,7 +1093,7 @@
         },
         {
             "title": "Impostor 😳",
-            "text": "%SELF%, must do their best impression of %PLAYER1%, then you both must then drink",
+            "text": "%SELF%, must do their best impression of %PLAYER1% then you both must drink",
             "id": "8660cea6-5360-44ee-aaa0-3303873231c9",
             "has_image": true
         },
