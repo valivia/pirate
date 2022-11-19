@@ -1,3 +1,6 @@
+# ⚠️ Development for this project has been ended in favour of [a more dynamic card game](https://github.com/valivia/card_game) ⚠️
+
+
 # card placeholders
 
 Try not to use "you" to refer to the current player and instead use %SELF%,
